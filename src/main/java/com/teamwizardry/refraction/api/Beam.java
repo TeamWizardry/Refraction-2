@@ -4,9 +4,7 @@ import com.teamwizardry.librarianlib.features.network.PacketHandler;
 import com.teamwizardry.librarianlib.features.saving.Savable;
 import com.teamwizardry.librarianlib.features.saving.Save;
 import com.teamwizardry.refraction.api.utils.PosUtils;
-import com.teamwizardry.refraction.client.render.BeamRenderer;
 import com.teamwizardry.refraction.common.network.PacketAddBeam;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -140,7 +138,7 @@ public class Beam {
 		RayTraceResult result = PosUtils.raytrace(world, slope, origin, range, entitySkipList, ignoreEntities);
 		if (result == null) return false;
 		if (result.hitVec == null) return false;
-
+		if (result.hitVec.distanceTo(origin) < 0.2) return false;
 
 		PacketHandler.NETWORK.sendToAll(new PacketAddBeam(origin, result.hitVec, color));
 

@@ -5,9 +5,9 @@ import com.teamwizardry.librarianlib.features.sprite.Sprite;
 import com.teamwizardry.refraction.Refraction;
 import com.teamwizardry.refraction.common.network.PacketBeamRenderTick;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -37,6 +37,31 @@ public class BeamRenderer {
 
 	private BeamRenderer() {
 		MinecraftForge.EVENT_BUS.register(this);
+	}
+
+	private static BufferBuilder pos(BufferBuilder vb, Vec3d pos) {
+		return vb.pos(pos.x, pos.y, pos.z);
+	}
+
+	public void update() {
+		beams.entrySet().removeIf((e) -> {
+			if (e.getValue() <= 0) return true;
+			else {
+				e.setValue(e.getValue() - 1);
+				return false;
+			}
+		});
+	}
+
+	public void addBeam(BeamRenderInfo info) {
+		beams.put(info, 1);
+	}
+
+	@SubscribeEvent
+	public void eventServerTick(TickEvent.ServerTickEvent event) {
+		if (event.phase == TickEvent.Phase.START) {
+			PacketHandler.NETWORK.sendToAll(new PacketBeamRenderTick());
+		}
 	}
 
 	@SubscribeEvent
@@ -72,7 +97,7 @@ public class BeamRenderer {
 			double uMin = 0, uMax = 1;
 
 			Tessellator tessellator = Tessellator.getInstance();
-			VertexBuffer vb = tessellator.getBuffer();
+			BufferBuilder vb = tessellator.getBuffer();
 
 			vb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR);
 			pos(vb, start.add(d)).tex(uMin, vMin).color(color.getRed(), color.getGreen(), color.getBlue(), Math.max(128, color.getAlpha())).endVertex();
@@ -100,30 +125,5 @@ public class BeamRenderer {
 		GlStateManager.disableAlpha();
 
 		GlStateManager.popMatrix();
-	}
-
-	public void update() {
-		beams.entrySet().removeIf((e) -> {
-			if (e.getValue() <= 0) return true;
-			else {
-				e.setValue(e.getValue() - 1);
-				return false;
-			}
-		});
-	}
-
-	public void addBeam(BeamRenderInfo info) {
-		beams.put(info, 1);
-	}
-
-	@SubscribeEvent
-	public void eventServerTick(TickEvent.ServerTickEvent event) {
-		if (event.phase == TickEvent.Phase.START) {
-			PacketHandler.NETWORK.sendToAll(new PacketBeamRenderTick());
-		}
-	}
-
-	private static VertexBuffer pos(VertexBuffer vb, Vec3d pos) {
-		return vb.pos(pos.xCoord, pos.yCoord, pos.zCoord);
 	}
 }

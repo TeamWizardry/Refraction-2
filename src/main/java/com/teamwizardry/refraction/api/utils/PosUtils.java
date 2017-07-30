@@ -35,7 +35,7 @@ public final class PosUtils {
 
 		Entity targetEntity = null;
 		RayTraceResult entityTrace = null;
-		AxisAlignedBB bb = new AxisAlignedBB(lookVec.xCoord, lookVec.yCoord, lookVec.zCoord, lookVec.xCoord, lookVec.yCoord, lookVec.zCoord);
+		AxisAlignedBB bb = new AxisAlignedBB(lookVec.x, lookVec.y, lookVec.z, lookVec.x, lookVec.y, lookVec.z);
 
 		if (!ignoreEntities) {
 			List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(null, bb.expand(range, range, range));
@@ -80,9 +80,9 @@ public final class PosUtils {
 		for (Vec3d vec : vectors) {
 			if (vec == null) continue;
 			vec.normalize();
-			x += vec.xCoord;
-			y += vec.yCoord;
-			z += vec.zCoord;
+			x += vec.x;
+			y += vec.y;
+			z += vec.z;
 		}
 
 		return new Vec3d(x, y, z);
@@ -93,8 +93,8 @@ public final class PosUtils {
 	}
 
 	public static float[] vecToRotations(Vec3d vec) {
-		float yaw = (float) MathHelper.atan2(vec.zCoord, vec.xCoord);
-		float pitch = (float) Math.asin(vec.yCoord / vec.lengthVector());
+		float yaw = (float) MathHelper.atan2(vec.z, vec.x);
+		float pitch = (float) Math.asin(vec.y / vec.lengthVector());
 		return new float[]{(float) Math.toDegrees(pitch), (float) Math.toDegrees(yaw) + 90};
 	}
 }

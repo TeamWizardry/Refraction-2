@@ -1,149 +1,803 @@
-[09:29:35] [Client thread/INFO]: Setting user: Player766
-[09:29:48] [Client thread/INFO]: LWJGL Version: 2.9.4
-[09:30:07] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Refraction, FMLFileResourcePack:Forgelin, FMLFileResourcePack:LibrarianLib Stage 2, FMLFileResourcePack:LibrarianLib, FMLFileResourcePack:LibrarianLib Test
-[09:30:19] [Client thread/INFO]: [STDERR]: java.io.FileNotFoundException: refraction:textures/particles/streak_base.png
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:69)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.features.sprite.Texture.loadSpriteData(Texture.kt:75)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.features.sprite.Texture$Companion$register$1.runIfClient(Texture.kt:128)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.core.client.LibClientProxy.runIfClient(LibClientProxy.kt:106)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.features.utilities.client.ClientRunnable.run(ClientRunnable.java:24)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.core.client.LibClientProxy.onResourceManagerReload(LibClientProxy.kt:121)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:122)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.core.client.LibClientProxy.latePre(LibClientProxy.kt:77)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.core.LateLoader.preInit(LateLoader.kt:13)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at java.lang.reflect.Method.invoke(Method.java:498)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.fml.common.FMLModContainer.handleModStateEvent(FMLModContainer.java:643)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at java.lang.reflect.Method.invoke(Method.java:498)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventSubscriber.handleEvent(EventSubscriber.java:74)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.SynchronizedEventSubscriber.handleEvent(SynchronizedEventSubscriber.java:47)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventBus.dispatch(EventBus.java:322)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventBus.dispatchQueuedEvents(EventBus.java:304)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventBus.post(EventBus.java:275)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.fml.common.LoadController.sendEventToModContainer(LoadController.java:252)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.fml.common.LoadController.propogateStateMessage(LoadController.java:230)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at java.lang.reflect.Method.invoke(Method.java:498)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventSubscriber.handleEvent(EventSubscriber.java:74)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.SynchronizedEventSubscriber.handleEvent(SynchronizedEventSubscriber.java:47)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventBus.dispatch(EventBus.java:322)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventBus.dispatchQueuedEvents(EventBus.java:304)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventBus.post(EventBus.java:275)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.fml.common.LoadController.distributeStateMessage(LoadController.java:147)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.fml.common.Loader.preinitializeMods(Loader.java:647)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.fml.client.FMLClientHandler.beginMinecraftLoading(FMLClientHandler.java:276)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.Minecraft.init(Minecraft.java:478)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.Minecraft.run(Minecraft.java:387)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.main.Main.main(Main.java:118)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at java.lang.reflect.Method.invoke(Method.java:498)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at java.lang.reflect.Method.invoke(Method.java:498)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at GradleStart.main(GradleStart.java:26)
-[09:30:19] [Client thread/INFO]: [STDERR]: java.io.FileNotFoundException: refraction:textures/particles/streak_base.png
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:69)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.features.sprite.Texture.loadSpriteData(Texture.kt:75)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.features.sprite.Texture$Companion$register$1.runIfClient(Texture.kt:128)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.core.client.LibClientProxy.runIfClient(LibClientProxy.kt:106)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.features.utilities.client.ClientRunnable.run(ClientRunnable.java:24)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.core.client.LibClientProxy.onResourceManagerReload(LibClientProxy.kt:121)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.core.client.LibClientProxy.latePre(LibClientProxy.kt:78)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.core.LateLoader.preInit(LateLoader.kt:13)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at java.lang.reflect.Method.invoke(Method.java:498)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.fml.common.FMLModContainer.handleModStateEvent(FMLModContainer.java:643)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at java.lang.reflect.Method.invoke(Method.java:498)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventSubscriber.handleEvent(EventSubscriber.java:74)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.SynchronizedEventSubscriber.handleEvent(SynchronizedEventSubscriber.java:47)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventBus.dispatch(EventBus.java:322)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventBus.dispatchQueuedEvents(EventBus.java:304)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventBus.post(EventBus.java:275)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.fml.common.LoadController.sendEventToModContainer(LoadController.java:252)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.fml.common.LoadController.propogateStateMessage(LoadController.java:230)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at java.lang.reflect.Method.invoke(Method.java:498)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventSubscriber.handleEvent(EventSubscriber.java:74)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.SynchronizedEventSubscriber.handleEvent(SynchronizedEventSubscriber.java:47)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventBus.dispatch(EventBus.java:322)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventBus.dispatchQueuedEvents(EventBus.java:304)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at com.google.common.eventbus.EventBus.post(EventBus.java:275)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.fml.common.LoadController.distributeStateMessage(LoadController.java:147)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.fml.common.Loader.preinitializeMods(Loader.java:647)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.fml.client.FMLClientHandler.beginMinecraftLoading(FMLClientHandler.java:276)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.Minecraft.init(Minecraft.java:478)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.Minecraft.run(Minecraft.java:387)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.main.Main.main(Main.java:118)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at java.lang.reflect.Method.invoke(Method.java:498)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at java.lang.reflect.Method.invoke(Method.java:498)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
-[09:30:19] [Client thread/INFO]: [STDERR]: 	at GradleStart.main(GradleStart.java:26)
-[09:31:10] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[09:31:10] [Thread-8/INFO]: Initializing LWJGL OpenAL
-[09:31:10] [Thread-8/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[09:31:11] [Thread-8/INFO]: OpenAL initialized.
-[09:31:11] [Sound Library Loader/INFO]: Sound engine started
-[09:31:22] [Client thread/INFO]: Created: 16x16 textures-atlas
-[09:31:24] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Refraction, FMLFileResourcePack:Forgelin, FMLFileResourcePack:LibrarianLib Stage 2, FMLFileResourcePack:LibrarianLib, FMLFileResourcePack:LibrarianLib Test
-[09:31:24] [Client thread/INFO]: [STDERR]: java.io.FileNotFoundException: refraction:textures/particles/streak_base.png
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:69)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.features.sprite.Texture.loadSpriteData(Texture.kt:75)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.features.sprite.Texture$Companion$register$1.runIfClient(Texture.kt:128)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.core.client.LibClientProxy.runIfClient(LibClientProxy.kt:106)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.features.utilities.client.ClientRunnable.run(ClientRunnable.java:24)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at com.teamwizardry.librarianlib.core.client.LibClientProxy.onResourceManagerReload(LibClientProxy.kt:121)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.resources.SimpleReloadableResourceManager.notifyReloadListeners(SimpleReloadableResourceManager.java:132)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.resources.SimpleReloadableResourceManager.reloadResources(SimpleReloadableResourceManager.java:113)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.Minecraft.refreshResources(Minecraft.java:808)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.fml.client.FMLClientHandler.finishMinecraftLoading(FMLClientHandler.java:373)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.Minecraft.init(Minecraft.java:562)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.Minecraft.run(Minecraft.java:387)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at net.minecraft.client.main.Main.main(Main.java:118)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at java.lang.reflect.Method.invoke(Method.java:498)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at java.lang.reflect.Method.invoke(Method.java:498)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
-[09:31:24] [Client thread/INFO]: [STDERR]: 	at GradleStart.main(GradleStart.java:26)
-[09:31:54] [Client thread/INFO]: SoundSystem shutting down...
-[09:31:55] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
-[09:31:55] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[09:31:55] [Thread-10/INFO]: Initializing LWJGL OpenAL
-[09:31:55] [Thread-10/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[09:31:55] [Thread-10/INFO]: OpenAL initialized.
-[09:31:55] [Sound Library Loader/INFO]: Sound engine started
-[09:32:04] [Client thread/INFO]: Created: 512x512 textures-atlas
+[22:29:31] [main/INFO]: Extra: []
+[22:29:31] [main/INFO]: Found and added coremod: net.shadowfacts.forgelin.preloader.ForgelinPlugin
+[22:29:31] [main/INFO]: Running with arguments: [--userProperties, {}, --assetsDir, C:/Users/saad/.gradle/caches/minecraft/assets, --assetIndex, 1.12, --accessToken{REDACTED}, --version, 1.12, --tweakClass, net.minecraftforge.fml.common.launcher.FMLTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[22:29:31] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[22:29:31] [main/INFO]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[22:29:31] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[22:29:31] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
+[22:29:31] [main/INFO]: Forge Mod Loader version 14.21.1.2400 for Minecraft 1.12 loading
+[22:29:31] [main/INFO]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_144, running on Windows 10:amd64:10.0, installed at C:\Program Files\Java\jdk1.8.0_144\jre
+[22:29:31] [main/INFO]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[22:29:31] [main/INFO]: Found a command line coremod : net.shadowfacts.forgelin.preloader.ForgelinPlugin
+[22:29:31] [main/WARN]: The coremod net.shadowfacts.forgelin.preloader.ForgelinPlugin does not have a MCVersion annotation, it may cause issues with this version of Minecraft
+[22:29:31] [main/INFO]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[22:29:31] [main/INFO]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
+[22:29:31] [main/INFO]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[22:29:31] [main/INFO]: Injecting location in coremod net.shadowfacts.forgelin.preloader.ForgelinPlugin
+[22:29:31] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[22:29:31] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[22:29:31] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[22:29:31] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[22:29:31] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[22:29:31] [main/INFO]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[22:29:32] [main/ERROR]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[22:29:35] [main/ERROR]: FML appears to be missing any signature data. This is not a good thing
+[22:29:35] [main/INFO]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[22:29:35] [main/INFO]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[22:29:35] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[22:29:35] [main/INFO]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[22:29:35] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
+[22:29:35] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
+[22:29:35] [main/INFO]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[22:29:37] [main/INFO]: Setting user: Player401
+[22:29:44] [main/INFO]: LWJGL Version: 2.9.4
+[22:29:45] [main/INFO]: -- System Details --
+Details:
+	Minecraft Version: 1.12
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_144, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 29319544 bytes (27 MB) / 494403584 bytes (471 MB) up to 1890582528 bytes (1803 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: 
+	Loaded coremods (and transformers): 
+ForgelinPlugin (Forgelin-1.5.1.jar)
+  
+	GL info: ' Vendor: 'Intel' Version: '4.4.0 - Build 20.19.15.4531' Renderer: 'Intel(R) HD Graphics 5500'
+[22:29:45] [main/INFO]: MinecraftForge v14.21.1.2400 Initialized
+[22:29:46] [main/INFO]: Replaced 921 ore ingredients
+[22:29:46] [main/INFO]: Found 0 mods from the command line. Injecting into mod discoverer
+[22:29:46] [main/INFO]: Searching C:\Users\saad\IdeaProjects\Refraction-2\run\mods for mods
+[22:29:48] [Thread-3/INFO]: Using sync timing. 200 frames of Display.update took 191617274 nanos
+[22:29:51] [main/INFO]: Forge Mod Loader has identified 9 mods to load
+[22:29:52] [main/INFO]: Attempting connection with missing mods [minecraft, mcp, FML, forge, refraction, forgelin, librarianlibtest, librarianliblate, librarianlib] at CLIENT
+[22:29:52] [main/INFO]: Attempting connection with missing mods [minecraft, mcp, FML, forge, refraction, forgelin, librarianlibtest, librarianliblate, librarianlib] at SERVER
+[22:29:59] [main/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Refraction, FMLFileResourcePack:Shadowfacts' Forgelin, FMLFileResourcePack:LibrarianLib Test, FMLFileResourcePack:LibrarianLib Stage 2, FMLFileResourcePack:LibrarianLib
+[22:29:59] [main/INFO]: Processing ObjectHolder annotations
+[22:29:59] [main/INFO]: Found 1168 ObjectHolder annotations
+[22:29:59] [main/INFO]: Identifying ItemStackHolder annotations
+[22:29:59] [main/INFO]: Found 0 ItemStackHolder annotations
+[22:29:59] [main/INFO]: Configured a dormant chunk cache size of 0
+[22:29:59] [Forge Version Check/INFO]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[22:30:00] [Forge Version Check/INFO]: [forge] Found status: OUTDATED Target: 14.21.1.2428
+[22:30:02] [main/INFO]: librarianlib | Prefixes: 
+[22:30:02] [main/INFO]:              | *** Owned by `forge` ***
+[22:30:02] [main/INFO]:              | | net.minecraftforge.classloading
+[22:30:02] [main/INFO]:              | | net.minecraftforge.client
+[22:30:02] [main/INFO]:              | | net.minecraftforge.client.event
+[22:30:02] [main/INFO]:              | | net.minecraftforge.client.event.sound
+[22:30:02] [main/INFO]:              | | net.minecraftforge.client.model
+[22:30:02] [main/INFO]:              | | net.minecraftforge.client.model.obj
+[22:30:02] [main/INFO]:              | | net.minecraftforge.client.model.techne
+[22:30:02] [main/INFO]:              | | net.minecraftforge.common
+[22:30:02] [main/INFO]:              | | net.minecraftforge.common.config
+[22:30:02] [main/INFO]:              | | net.minecraftforge.common.network
+[22:30:02] [main/INFO]:              | | net.minecraftforge.common.util
+[22:30:02] [main/INFO]:              | | net.minecraftforge.event
+[22:30:02] [main/INFO]:              | | net.minecraftforge.event.brewing
+[22:30:02] [main/INFO]:              | | net.minecraftforge.event.entity
+[22:30:02] [main/INFO]:              | | net.minecraftforge.event.entity.item
+[22:30:02] [main/INFO]:              | | net.minecraftforge.event.entity.living
+[22:30:02] [main/INFO]:              | | net.minecraftforge.event.entity.minecart
+[22:30:02] [main/INFO]:              | | net.minecraftforge.event.entity.player
+[22:30:02] [main/INFO]:              | | net.minecraftforge.event.terraingen
+[22:30:02] [main/INFO]:              | | net.minecraftforge.event.world
+[22:30:02] [main/INFO]:              | | net.minecraftforge.fluids
+[22:30:02] [main/INFO]:              | | net.minecraftforge.oredict
+[22:30:02] [main/INFO]:              | | net.minecraftforge.server
+[22:30:02] [main/INFO]:              | | net.minecraftforge.server.command
+[22:30:02] [main/INFO]:              | | net.minecraftforge.transformers
+[22:30:02] [main/INFO]:              | *** Owned by `refraction` ***
+[22:30:02] [main/INFO]:              | | com.teamwizardry.refraction.api
+[22:30:02] [main/INFO]:              | | com.teamwizardry.refraction.api.utils
+[22:30:02] [main/INFO]:              | | com.teamwizardry.refraction.client.render
+[22:30:02] [main/INFO]:              | | com.teamwizardry.refraction
+[22:30:02] [main/INFO]:              | | com.teamwizardry.refraction.common.network
+[22:30:02] [main/INFO]:              | *** Owned by `forgelin` ***
+[22:30:02] [main/INFO]:              | | net.shadowfacts.forgelin
+[22:30:02] [main/INFO]:              | | net.shadowfacts.forgelin.preloader
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.serialization
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.serialization.deserialization
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.serialization.deserialization.descriptors
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.serialization.builtins
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.serialization.jvm
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.renderer
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.name
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.incremental
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.incremental.components
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.utils
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.storage
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.load.java
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.load.java.reflect
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.load.java.components
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.load.java.lazy
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.load.java.lazy.types
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.load.java.lazy.descriptors
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.load.java.sources
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.load.java.descriptors
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.load.java.structure
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.load.java.structure.reflect
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.load.kotlin
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.load.kotlin.reflect
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.load.kotlin.header
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.types
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.types.error
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.types.typesApproximation
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.types.typeUtil
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.types.checker
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.util
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.util.collectionUtils
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.util.capitalizeDecapitalize
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.config
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.builtins
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.builtins.functions
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.platform
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.resolve
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.resolve.constants
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.resolve.scopes
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.resolve.calls.inference
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.resolve.jvm
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.descriptors
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.descriptors.annotations
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.descriptors.impl
+[22:30:02] [main/INFO]:              | | kotlin.reflect
+[22:30:02] [main/INFO]:              | | kotlin.reflect.full
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.pcollections
+[22:30:02] [main/INFO]:              | | kotlin.reflect.jvm.internal.impl.protobuf
+[22:30:02] [main/INFO]:              | | kotlinx.coroutines.experimental.future
+[22:30:02] [main/INFO]:              | | kotlinx.coroutines.experimental
+[22:30:02] [main/INFO]:              | | kotlinx.coroutines.experimental.sync
+[22:30:02] [main/INFO]:              | | kotlinx.coroutines.experimental.selects
+[22:30:02] [main/INFO]:              | | kotlinx.coroutines.experimental.intrinsics
+[22:30:02] [main/INFO]:              | | kotlinx.coroutines.experimental.channels
+[22:30:02] [main/INFO]:              | | kotlinx.coroutines.experimental.internal
+[22:30:02] [main/INFO]:              | | kotlin.ranges
+[22:30:02] [main/INFO]:              | | kotlin
+[22:30:02] [main/INFO]:              | | kotlin.concurrent
+[22:30:02] [main/INFO]:              | | kotlin.comparisons
+[22:30:02] [main/INFO]:              | | kotlin.text
+[22:30:02] [main/INFO]:              | | kotlin.collections
+[22:30:02] [main/INFO]:              | | kotlin.internal
+[22:30:02] [main/INFO]:              | | kotlin.properties
+[22:30:02] [main/INFO]:              | | kotlin.sequences
+[22:30:02] [main/INFO]:              | | kotlin.io
+[22:30:02] [main/INFO]:              | | kotlin.experimental
+[22:30:02] [main/INFO]:              | | kotlin.coroutines.experimental
+[22:30:02] [main/INFO]:              | | kotlin.coroutines.experimental.intrinsics
+[22:30:02] [main/INFO]:              | | kotlin.coroutines.experimental.jvm.internal
+[22:30:02] [main/INFO]:              | | kotlin.system
+[22:30:02] [main/INFO]:              | | kotlin.jvm.internal.unsafe
+[22:30:02] [main/INFO]:              | | kotlin.jvm
+[22:30:02] [main/INFO]:              | | kotlin.annotation
+[22:30:02] [main/INFO]:              | | kotlin.jvm.internal.markers
+[22:30:02] [main/INFO]:              | | kotlin.jvm.internal
+[22:30:02] [main/INFO]:              | | kotlin.jvm.functions
+[22:30:02] [main/INFO]:              | | org.intellij.lang.annotations
+[22:30:02] [main/INFO]:              | | org.jetbrains.annotations
+[22:30:02] [main/INFO]:              | *** Owned by `librarianlibtest` ***
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.asm
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.capability
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.block
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.block.tile
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.block.tile.module
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.entity
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.item
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.methodhandles
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.generics
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.trove
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.primitives
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.basics
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.special
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.core
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.helpers
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.batch
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.utilities
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.utilities.client
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.helpers
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.kotlin
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.config
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.particle
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.particle.functions
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.container
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.container.builtin
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.container.internal
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.math
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.math.interpolate
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.math.interpolate.float
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.math.interpolate.position
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.guicontainer
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.guicontainer.builtin
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.autoregister
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.autoregister.builtin
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.structure
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.sprite
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.eventbus
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.gui
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.gui.mixin
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.gui.mixin.gl
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.gui.components
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.network
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.shader
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.shader.uniforms
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.forgeevents
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.chunkdata
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.docsPlayground
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.saving
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.chunkdata
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.cap
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.fx
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.gui
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.gui.tests
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.testcore
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.testcore.block
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.variants
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.module
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.container
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.core
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.core.common
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.core.client
+[22:30:02] [main/INFO]:              | *** Owned by `librarianlib` ***
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.asm
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.capability
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.block
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.block.tile
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.block.tile.module
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.entity
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.item
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.methodhandles
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.generics
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.trove
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.primitives
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.basics
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.special
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.core
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.helpers
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.batch
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.utilities
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.utilities.client
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.helpers
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.kotlin
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.config
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.particle
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.particle.functions
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.container
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.container.builtin
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.container.internal
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.math
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.math.interpolate
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.math.interpolate.float
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.math.interpolate.position
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.guicontainer
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.guicontainer.builtin
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.autoregister
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.autoregister.builtin
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.structure
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.sprite
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.eventbus
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.gui
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.gui.mixin
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.gui.mixin.gl
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.gui.components
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.network
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.shader
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.shader.uniforms
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.forgeevents
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.chunkdata
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.docsPlayground
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.saving
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.chunkdata
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.cap
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.fx
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.gui
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.gui.tests
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.testcore
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.testcore.block
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.variants
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.module
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.container
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.core
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.core.common
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.core.client
+[22:30:02] [main/INFO]:              | *** Owned by `librarianliblate` ***
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.asm
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.capability
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.block
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.block.tile
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.block.tile.module
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.entity
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.base.item
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.methodhandles
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.generics
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.trove
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.primitives
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.basics
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.special
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.serializers.builtin.core
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.helpers
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.saving.batch
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.utilities
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.utilities.client
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.helpers
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.kotlin
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.config
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.particle
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.particle.functions
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.container
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.container.builtin
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.container.internal
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.math
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.math.interpolate
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.math.interpolate.float
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.math.interpolate.position
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.guicontainer
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.guicontainer.builtin
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.autoregister
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.autoregister.builtin
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.structure
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.sprite
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.eventbus
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.gui
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.gui.mixin
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.gui.mixin.gl
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.gui.components
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.network
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.shader
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.shader.uniforms
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.forgeevents
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.features.chunkdata
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.docsPlayground
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.saving
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.chunkdata
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.cap
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.fx
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.gui
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.gui.tests
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.testcore
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.testcore.block
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.variants
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.module
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.test.container
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.core
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.core.common
+[22:30:02] [main/INFO]:              | | com.teamwizardry.librarianlib.core.client
+[22:30:04] [main/INFO]: librarianlib | Unsafe-allowed mod IDs:
+[22:30:07] [main/INFO]: librarianlib | All config properties found:
+[22:30:07] [main/INFO]:              | Int         | com.teamwizardry.librarianlib.core.common.LibLibConfig.maxParticleCount
+[22:30:07] [main/INFO]:              | Boolean     | com.teamwizardry.librarianlib.core.common.LibLibConfig.generateJson
+[22:30:07] [main/INFO]:              | Boolean     | com.teamwizardry.librarianlib.core.common.LibLibConfig.oneBonemeal
+[22:30:07] [main/INFO]:              | Boolean     | com.teamwizardry.librarianlib.core.common.LibLibConfig.prettyJsonSerialization
+[22:30:07] [main/INFO]:              | Boolean     | com.teamwizardry.librarianlib.core.common.LibLibConfig.shaders
+[22:30:07] [main/INFO]:              | Boolean     | com.teamwizardry.librarianlib.core.client.GlowingHandler.enchantmentGlow
+[22:30:07] [main/INFO]:              | Boolean     | com.teamwizardry.librarianlib.core.client.GlowingHandler.potionGlow
+[22:30:07] [main/INFO]:              | StringArray | com.teamwizardry.librarianlib.core.client.GlowingHandler.glowing
+[22:30:07] [main/INFO]: librarianlibtest | All config properties found:
+[22:30:07] [main/INFO]:                  | String       | com.teamwizardry.librarianlib.test.testcore.Config.string
+[22:30:07] [main/INFO]:                  | Int          | com.teamwizardry.librarianlib.test.testcore.Config.int
+[22:30:07] [main/INFO]:                  | Boolean      | com.teamwizardry.librarianlib.test.testcore.Config.boolean
+[22:30:07] [main/INFO]:                  | Double       | com.teamwizardry.librarianlib.test.testcore.Config.double
+[22:30:07] [main/INFO]:                  | Long         | com.teamwizardry.librarianlib.test.testcore.Config.long
+[22:30:07] [main/INFO]:                  | StringArray  | com.teamwizardry.librarianlib.test.testcore.Config.stringArr
+[22:30:07] [main/INFO]:                  | IntArray     | com.teamwizardry.librarianlib.test.testcore.Config.intArr
+[22:30:07] [main/INFO]:                  | BooleanArray | com.teamwizardry.librarianlib.test.testcore.Config.booleanArr
+[22:30:07] [main/INFO]:                  | DoubleArray  | com.teamwizardry.librarianlib.test.testcore.Config.doubleArr
+[22:30:07] [main/INFO]:                  | LongArray    | com.teamwizardry.librarianlib.test.testcore.Config.longArr
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: java.io.FileNotFoundException: refraction:textures/particles/streak_base.png
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:69)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.teamwizardry.librarianlib.features.sprite.Texture.loadSpriteData(Texture.kt:75)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.teamwizardry.librarianlib.features.sprite.Texture$Companion$register$1.runIfClient(Texture.kt:128)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.teamwizardry.librarianlib.core.client.LibClientProxy.runIfClient(LibClientProxy.kt:104)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.teamwizardry.librarianlib.features.utilities.client.ClientRunnable.run(ClientRunnable.java:24)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.teamwizardry.librarianlib.core.client.LibClientProxy.onResourceManagerReload(LibClientProxy.kt:119)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.teamwizardry.librarianlib.core.client.LibClientProxy.latePre(LibClientProxy.kt:75)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.teamwizardry.librarianlib.core.LateLoader.preInit(LateLoader.kt:13)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at java.lang.reflect.Method.invoke(Method.java:498)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraftforge.fml.common.FMLModContainer.handleModStateEvent(FMLModContainer.java:630)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at java.lang.reflect.Method.invoke(Method.java:498)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber.invokeSubscriberMethod(Subscriber.java:91)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber$SynchronizedSubscriber.invokeSubscriberMethod(Subscriber.java:150)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber$1.run(Subscriber.java:76)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.util.concurrent.MoreExecutors$DirectExecutor.execute(MoreExecutors.java:399)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber.dispatchEvent(Subscriber.java:71)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Dispatcher$PerThreadQueuedDispatcher.dispatch(Dispatcher.java:116)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.EventBus.post(EventBus.java:217)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraftforge.fml.common.LoadController.sendEventToModContainer(LoadController.java:252)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraftforge.fml.common.LoadController.propogateStateMessage(LoadController.java:230)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at java.lang.reflect.Method.invoke(Method.java:498)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber.invokeSubscriberMethod(Subscriber.java:91)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber$SynchronizedSubscriber.invokeSubscriberMethod(Subscriber.java:150)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber$1.run(Subscriber.java:76)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.util.concurrent.MoreExecutors$DirectExecutor.execute(MoreExecutors.java:399)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber.dispatchEvent(Subscriber.java:71)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Dispatcher$PerThreadQueuedDispatcher.dispatch(Dispatcher.java:116)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.EventBus.post(EventBus.java:217)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraftforge.fml.common.LoadController.distributeStateMessage(LoadController.java:147)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraftforge.fml.common.Loader.preinitializeMods(Loader.java:604)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraftforge.fml.client.FMLClientHandler.beginMinecraftLoading(FMLClientHandler.java:266)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraft.client.Minecraft.init(Minecraft.java:508)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraft.client.Minecraft.run(Minecraft.java:416)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraft.client.main.Main.main(Main.java:118)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at java.lang.reflect.Method.invoke(Method.java:498)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at java.lang.reflect.Method.invoke(Method.java:498)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at GradleStart.main(GradleStart.java:26)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: java.io.FileNotFoundException: refraction:textures/particles/streak_base.png
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:69)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.teamwizardry.librarianlib.features.sprite.Texture.loadSpriteData(Texture.kt:75)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.teamwizardry.librarianlib.features.sprite.Texture$Companion$register$1.runIfClient(Texture.kt:128)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.teamwizardry.librarianlib.core.client.LibClientProxy.runIfClient(LibClientProxy.kt:104)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.teamwizardry.librarianlib.features.utilities.client.ClientRunnable.run(ClientRunnable.java:24)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.teamwizardry.librarianlib.core.client.LibClientProxy.onResourceManagerReload(LibClientProxy.kt:119)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.teamwizardry.librarianlib.core.client.LibClientProxy.latePre(LibClientProxy.kt:76)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.teamwizardry.librarianlib.core.LateLoader.preInit(LateLoader.kt:13)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at java.lang.reflect.Method.invoke(Method.java:498)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraftforge.fml.common.FMLModContainer.handleModStateEvent(FMLModContainer.java:630)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at java.lang.reflect.Method.invoke(Method.java:498)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber.invokeSubscriberMethod(Subscriber.java:91)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber$SynchronizedSubscriber.invokeSubscriberMethod(Subscriber.java:150)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber$1.run(Subscriber.java:76)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.util.concurrent.MoreExecutors$DirectExecutor.execute(MoreExecutors.java:399)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber.dispatchEvent(Subscriber.java:71)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Dispatcher$PerThreadQueuedDispatcher.dispatch(Dispatcher.java:116)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.EventBus.post(EventBus.java:217)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraftforge.fml.common.LoadController.sendEventToModContainer(LoadController.java:252)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraftforge.fml.common.LoadController.propogateStateMessage(LoadController.java:230)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at java.lang.reflect.Method.invoke(Method.java:498)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber.invokeSubscriberMethod(Subscriber.java:91)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber$SynchronizedSubscriber.invokeSubscriberMethod(Subscriber.java:150)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber$1.run(Subscriber.java:76)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.util.concurrent.MoreExecutors$DirectExecutor.execute(MoreExecutors.java:399)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Subscriber.dispatchEvent(Subscriber.java:71)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.Dispatcher$PerThreadQueuedDispatcher.dispatch(Dispatcher.java:116)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at com.google.common.eventbus.EventBus.post(EventBus.java:217)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraftforge.fml.common.LoadController.distributeStateMessage(LoadController.java:147)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraftforge.fml.common.Loader.preinitializeMods(Loader.java:604)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraftforge.fml.client.FMLClientHandler.beginMinecraftLoading(FMLClientHandler.java:266)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraft.client.Minecraft.init(Minecraft.java:508)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraft.client.Minecraft.run(Minecraft.java:416)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraft.client.main.Main.main(Main.java:118)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at java.lang.reflect.Method.invoke(Method.java:498)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at java.lang.reflect.Method.invoke(Method.java:498)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+[22:30:07] [main/INFO]: [com.teamwizardry.librarianlib.features.sprite.Texture:loadSpriteData:93]: 	at GradleStart.main(GradleStart.java:26)
+[22:30:07] [main/INFO]: Applying holder lookups
+[22:30:07] [main/INFO]: Holder lookups applied
+[22:30:07] [main/INFO]: Applying holder lookups
+[22:30:07] [main/INFO]: Holder lookups applied
+[22:30:07] [main/INFO]: Applying holder lookups
+[22:30:07] [main/INFO]: Holder lookups applied
+[22:30:07] [main/INFO]: librarianlibtest | Registering models
+[22:30:07] [main/INFO]:                  | Registering variants of block variant
+[22:30:07] [main/INFO]:                  |  Variant #1: a
+[22:30:08] [main/INFO]:                  |  Variant #2: b
+[22:30:08] [main/INFO]:                  |  Variant #3: c
+[22:30:08] [main/INFO]:                  | Registering item a_door
+[22:30:08] [main/INFO]:                  | Registering item arrow
+[22:30:08] [main/INFO]:                  | Registering item chunkdata
+[22:30:08] [main/INFO]:                  | Registering item glow
+[22:30:08] [main/INFO]:                  | Registering item guiopener
+[22:30:08] [main/INFO]:                  | Registering item shield
+[22:30:08] [main/INFO]:                  | Registering item test
+[22:30:08] [main/INFO]:                  | Registering block saving_primitives
+[22:30:08] [main/INFO]:                  | Registering block saving_primitive_arrays
+[22:30:08] [main/INFO]:                  | Registering block saving_objects
+[22:30:08] [main/INFO]:                  | Registering block saving_object_arrays
+[22:30:08] [main/INFO]:                  | Registering block saving_primitive_deep_arrays
+[22:30:08] [main/INFO]:                  | Registering block saving_primitive_generics
+[22:30:08] [main/INFO]:                  | Registering block saving_savables
+[22:30:08] [main/INFO]:                  | Registering block saving_extended
+[22:30:08] [main/INFO]:                  | Registering block saving_dynamic
+[22:30:08] [main/INFO]:                  | Registering block a_pane
+[22:30:08] [main/INFO]:                  | Registering block a_trap
+[22:30:08] [main/INFO]:                  | Registering block a_slab
+[22:30:08] [main/INFO]:                  | Registering block b_slab
+[22:30:08] [main/INFO]:                  | Registering block c_slab
+[22:30:08] [main/INFO]:                  | Registering block a_stairs
+[22:30:08] [main/INFO]:                  | Registering block b_stairs
+[22:30:08] [main/INFO]:                  | Registering block c_stairs
+[22:30:08] [main/INFO]:                  | Registering block a_fence
+[22:30:08] [main/INFO]:                  | Registering block a_wall
+[22:30:08] [main/INFO]:                  | Registering block a_gate
+[22:30:08] [main/INFO]:                  | Registering block module_test
+[22:30:08] [main/INFO]:                  | Registering block log
+[22:30:08] [main/INFO]:                  | Registering block leaves
+[22:30:08] [main/INFO]:                  | Registering block sapling
+[22:30:08] [main/INFO]:                  | Registering block container
+[22:30:08] [main/INFO]:                  | Registering block powered_machine
+[22:30:08] [main/INFO]:                  | Registering block fluid_tank
+[22:30:08] [main/INFO]: Applying holder lookups
+[22:30:08] [main/INFO]: Holder lookups applied
+[22:30:08] [main/INFO]: Injecting itemstacks
+[22:30:08] [main/INFO]: Itemstack injection complete
+[22:30:32] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[22:30:32] [Thread-5/INFO]: Initializing LWJGL OpenAL
+[22:30:32] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[22:30:32] [Thread-5/INFO]: OpenAL initialized.
+[22:30:32] [Sound Library Loader/INFO]: Sound engine started
+[22:30:38] [main/INFO]: Max texture size: 16384
+[22:30:39] [main/INFO]: Created: 512x512 textures-atlas
+[22:30:40] [main/INFO]: [TextureDump] Exported png to: C:\Users\saad\IdeaProjects\Refraction-2\run\textures_0.png
+[22:30:40] [main/INFO]: [TextureDump] Exported png to: C:\Users\saad\IdeaProjects\Refraction-2\run\textures_1.png
+[22:30:40] [main/INFO]: [TextureDump] Exported png to: C:\Users\saad\IdeaProjects\Refraction-2\run\textures_2.png
+[22:30:40] [main/INFO]: [TextureDump] Exported png to: C:\Users\saad\IdeaProjects\Refraction-2\run\textures_3.png
+[22:30:40] [main/INFO]: [TextureDump] Exported png to: C:\Users\saad\IdeaProjects\Refraction-2\run\textures_4.png
+[22:30:41] [main/ERROR]: Exception loading model for variant librarianlibtest:variant#variant=c for blockstate "librarianlibtest:variant[variant=c]"
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model librarianlibtest:variant#variant=c with loader VariantLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:153) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.registerVariant(ModelLoader.java:233) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadBlock(ModelBakery.java:153) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadBlocks(ModelLoader.java:221) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:159) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:554) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:416) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:26) [start/:?]
+Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$MissingVariantException
+	at net.minecraft.client.renderer.block.model.ModelBlockDefinition.getVariant(ModelBlockDefinition.java:83) ~[ModelBlockDefinition.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1208) ~[ModelLoader$VariantLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:149) ~[ModelLoaderRegistry.class:?]
+	... 21 more
+[22:30:41] [main/ERROR]: Exception loading blockstate for the variant librarianlibtest:variant#variant=c: 
+java.lang.Exception: Could not load model definition for variant librarianlibtest:variant
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:266) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadBlock(ModelBakery.java:121) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadBlocks(ModelLoader.java:221) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:159) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:554) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:416) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:26) [start/:?]
+Caused by: java.lang.RuntimeException: Encountered an exception when loading model definition of model librarianlibtest:blockstates/variant.json
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadMultipartMBD(ModelBakery.java:228) ~[ModelBakery.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.getModelBlockDefinition(ModelBakery.java:208) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:262) ~[ModelLoader.class:?]
+	... 20 more
+Caused by: java.io.FileNotFoundException: librarianlibtest:blockstates/variant.json
+	at net.minecraft.client.resources.FallbackResourceManager.getAllResources(FallbackResourceManager.java:104) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getAllResources(SimpleReloadableResourceManager.java:79) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadMultipartMBD(ModelBakery.java:221) ~[ModelBakery.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.getModelBlockDefinition(ModelBakery.java:208) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:262) ~[ModelLoader.class:?]
+	... 20 more
+[22:30:41] [main/ERROR]: Exception loading model for variant librarianlibtest:variant#variant=b for blockstate "librarianlibtest:variant[variant=b]"
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model librarianlibtest:variant#variant=b with loader VariantLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:153) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.registerVariant(ModelLoader.java:233) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadBlock(ModelBakery.java:153) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadBlocks(ModelLoader.java:221) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:159) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:554) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:416) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:26) [start/:?]
+Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$MissingVariantException
+	at net.minecraft.client.renderer.block.model.ModelBlockDefinition.getVariant(ModelBlockDefinition.java:83) ~[ModelBlockDefinition.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1208) ~[ModelLoader$VariantLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:149) ~[ModelLoaderRegistry.class:?]
+	... 21 more
+[22:30:41] [main/ERROR]: Exception loading model for variant librarianlibtest:a_wall#east=false,north=false,south=true,up=false,west=false for blockstate "librarianlibtest:a_wall[east=false,north=false,south=true,up=false,west=false]"
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model librarianlibtest:a_wall#east=false,north=false,south=true,up=false,west=false with loader VariantLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:153) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.registerVariant(ModelLoader.java:233) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadBlock(ModelBakery.java:153) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadBlocks(ModelLoader.java:221) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:159) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:554) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:416) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:26) [start/:?]
+Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$MissingVariantException
+	at net.minecraft.client.renderer.block.model.ModelBlockDefinition.getVariant(ModelBlockDefinition.java:83) ~[ModelBlockDefinition.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1208) ~[ModelLoader$VariantLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:149) ~[ModelLoaderRegistry.class:?]
+	... 21 more
+[22:30:41] [main/ERROR]: Exception loading blockstate for the variant librarianlibtest:a_wall#east=false,north=false,south=true,up=false,west=false: 
+java.lang.Exception: Could not load model definition for variant librarianlibtest:a_wall
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:266) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadBlock(ModelBakery.java:121) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadBlocks(ModelLoader.java:221) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:159) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:554) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:416) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:26) [start/:?]
+Caused by: java.lang.RuntimeException: Encountered an exception when loading model definition of model librarianlibtest:blockstates/a_wall.json
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadMultipartMBD(ModelBakery.java:228) ~[ModelBakery.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.getModelBlockDefinition(ModelBakery.java:208) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:262) ~[ModelLoader.class:?]
+	... 20 more
+Caused by: java.io.FileNotFoundException: librarianlibtest:blockstates/a_wall.json
+	at net.minecraft.client.resources.FallbackResourceManager.getAllResources(FallbackResourceManager.java:104) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getAllResources(SimpleReloadableResourceManager.java:79) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadMultipartMBD(ModelBakery.java:221) ~[ModelBakery.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.getModelBlockDefinition(ModelBakery.java:208) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:262) ~[ModelLoader.class:?]
+	... 20 more
+[22:30:41] [main/ERROR]: Exception loading model for variant librarianlibtest:b_stairs#facing=east,half=top,shape=outer_left for blockstate "librarianlibtest:b_stairs[facing=east,half=top,shape=outer_left]"
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model librarianlibtest:b_stairs#facing=east,half=top,shape=outer_left with loader VariantLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:153) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.registerVariant(ModelLoader.java:233) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadBlock(ModelBakery.java:153) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadBlocks(ModelLoader.java:221) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:159) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:554) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:416) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:26) [start/:?]
+Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$MissingVariantException
+	at net.minecraft.client.renderer.block.model.ModelBlockDefinition.getVariant(ModelBlockDefinition.java:83) ~[ModelBlockDefinition.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1208) ~[ModelLoader$VariantLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:149) ~[ModelLoaderRegistry.class:?]
+	... 21 more
+[22:30:41] [main/ERROR]: Exception loading blockstate for the variant librarianlibtest:b_stairs#facing=east,half=top,shape=outer_left: 
+java.lang.Exception: Could not load model definition for variant librarianlibtest:b_stairs
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:266) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadBlock(ModelBakery.java:121) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadBlocks(ModelLoader.java:221) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:159) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:554) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:416) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:26) [start/:?]
+Caused by: java.lang.RuntimeException: Encountered an exception when loading model definition of model librarianlibtest:blockstates/b_stairs.json
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadMultipartMBD(ModelBakery.java:228) ~[ModelBakery.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.getModelBlockDefinition(ModelBakery.java:208) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:262) ~[ModelLoader.class:?]
+	... 20 more
+Caused by: java.io.FileNotFoundException: librarianlibtest:blockstates/b_stairs.json
+	at net.minecraft.client.resources.FallbackResourceManager.getAllResources(FallbackResourceManager.java:104) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getAllResources(SimpleReloadableResourceManager.java:79) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadMultipartMBD(ModelBakery.java:221) ~[ModelBakery.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.getModelBlockDefinition(ModelBakery.java:208) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:262) ~[ModelLoader.class:?]
+	... 20 more
+[22:30:41] [main/FATAL]: Suppressed additional 362 model loading errors for domain librarianlibtest
+[22:30:43] [main/INFO]: Injecting itemstacks
+[22:30:43] [main/INFO]: Itemstack injection complete
+[22:30:43] [main/INFO]: librarianlibtest | sun.misc.Unsafe@109c5e70
+[22:30:43] [main/INFO]: Forge Mod Loader has successfully loaded 9 mods
+[22:30:43] [main/INFO]: Narrator library for x64 successfully loaded
+[22:30:45] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: Invalid session id
+[22:31:00] [main/INFO]: Stopping!
+[22:31:00] [main/INFO]: SoundSystem shutting down...
+[22:31:00] [main/WARN]: Author: Paul Lamb, www.paulscode.com

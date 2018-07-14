@@ -5,7 +5,7 @@ import net.minecraft.util.math.Vec3d;
 import java.awt.*;
 
 /**
- * Created by LordSaad.
+ * Created by Demoniaque.
  */
 public class BeamRenderInfo {
 

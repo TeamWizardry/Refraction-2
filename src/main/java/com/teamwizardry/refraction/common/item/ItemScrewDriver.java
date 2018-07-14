@@ -78,11 +78,13 @@ public class ItemScrewDriver extends ItemMod {
 		return super.getUnlocalizedName(stack) + "." + i;
 	}
 
-	@Override
-	public float getStrVsBlock(ItemStack stack, IBlockState state) {
-		for (String type : getToolClasses(stack))
-			if (state.getBlock().isToolEffective(type, state))
-				return EFFICIENCY_ON_PROPER_MATERIAL;
-		return 1.0F;
-	}
+
+
+	//@Override
+	//public float getStrVsBlock(ItemStack stack, IBlockState state) {
+	//	for (String type : getToolClasses(stack))
+	//		if (state.getBlock().isToolEffective(type, state))
+	//			return EFFICIENCY_ON_PROPER_MATERIAL;
+	//	return 1.0F;
+	//}
 }

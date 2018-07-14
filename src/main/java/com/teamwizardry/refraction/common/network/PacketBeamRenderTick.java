@@ -6,7 +6,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Created by LordSaad.
+ * Created by Demoniaque.
  */
 public class PacketBeamRenderTick extends PacketBase {
 

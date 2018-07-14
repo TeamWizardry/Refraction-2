@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 /**
- * Created by LordSaad.
+ * Created by Demoniaque.
  */
 public class CommonProxy {
 

@@ -3,7 +3,7 @@ package com.teamwizardry.refraction.api.utils;
 import java.util.Random;
 
 /**
- * Created by LordSaad.
+ * Created by Demoniaque.
  */
 public class RandUtilSeed {
 

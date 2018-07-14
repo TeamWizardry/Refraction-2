@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 
 /**
- * Created by LordSaad.
+ * Created by Demoniaque.
  */
 public class PacketAddBeam extends PacketBase {
 

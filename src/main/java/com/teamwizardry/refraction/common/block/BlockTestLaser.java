@@ -9,8 +9,6 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.UUID;
-
 public class BlockTestLaser extends BlockModContainer {
 
 	public BlockTestLaser() {

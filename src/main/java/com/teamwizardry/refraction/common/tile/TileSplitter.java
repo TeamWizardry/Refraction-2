@@ -1,10 +1,8 @@
 package com.teamwizardry.refraction.common.tile;
 
 import com.teamwizardry.librarianlib.features.autoregister.TileRegister;
-import com.teamwizardry.librarianlib.features.tesr.TileRenderer;
 import com.teamwizardry.refraction.Refraction;
 import com.teamwizardry.refraction.api.Beam;
-import com.teamwizardry.refraction.client.render.RenderMirror;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 

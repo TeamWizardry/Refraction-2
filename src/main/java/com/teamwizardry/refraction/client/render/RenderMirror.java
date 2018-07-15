@@ -24,8 +24,6 @@ public class RenderMirror extends TileEntitySpecialRenderer<TileMirrorBase> {
 
 	private IBakedModel modelArms, modelMirror;
 
-	//private String customMirrorPlateTexLocation = null;
-
 	public RenderMirror() {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
@@ -58,7 +56,6 @@ public class RenderMirror extends TileEntitySpecialRenderer<TileMirrorBase> {
 	}
 
 	@Override
-	//public void render(float partialTicks, int destroyStage, float alpha) {
 	public void render(TileMirrorBase te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
 		double subtractedMillis = (te.getWorld().getTotalWorldTime() - te.worldTime);
 		double transitionTimeMaxX = Math.max(3, Math.min(Math.abs((te.rotPrevX - te.rotDestX) / 2.0), 10)),

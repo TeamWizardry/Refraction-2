@@ -70,6 +70,60 @@ public class Beam {
 		return this;
 	}
 
+	/**
+	 * Will create a beam that's exactly like the one passed.
+	 *
+	 * @return The new beam created. Can be modified as needed.
+	 */
+	public Beam createSimilarBeam() {
+		return createSimilarBeam(origin);
+	}
+
+	/**
+	 * Will create a beam that's exactly like the one passed except in color.
+	 *
+	 * @return The new beam created. Can be modified as needed.
+	 */
+	public Beam createSimilarBeam(Color color) {
+		return createSimilarBeam(origin, slope, color);
+	}
+
+	/**
+	 * Will create a similar beam that starts from the position this beam ended at
+	 * and will set it's slope to the one specified. So it's a new beam from the position
+	 * you last hit to the new one you specify.
+	 *
+	 * @param slope The slope or destination or final location the beam will point to.
+	 * @return The new beam created. Can be modified as needed.
+	 */
+	public Beam createSimilarBeam(Vec3d slope) {
+		return createSimilarBeam(origin, slope);
+	}
+
+
+	/**
+	 * Will create a similar beam that starts and ends in the positions you specify
+	 *
+	 * @param init The initial location or origin to spawn the beam from.
+	 * @param slope  The direction or slope or final destination or location the beam will point to.
+	 * @return The new beam created. Can be modified as needed.
+	 */
+	public Beam createSimilarBeam(Vec3d init, Vec3d slope) {
+		return createSimilarBeam(init, slope, color);
+	}
+
+	/**
+	 * Will create a similar beam that starts and ends in the positions you specify, with a custom color.
+	 *
+	 * @param init The initial location or origin to spawn the beam from.
+	 * @param dir  The direction or slope or final destination or location the beam will point to.
+	 * @return The new beam created. Can be modified as needed.
+	 */
+	public Beam createSimilarBeam(Vec3d init, Vec3d slope, Color color) {
+		return new Beam(world, init, slope, range, color)
+				.setBounceLimit(bounceLimit-bouncedTimes);
+	}
+
 	public boolean spawn() {
 		if (world.isRemote) return false;
 		//if (color.getAlpha() <= 1) return false;

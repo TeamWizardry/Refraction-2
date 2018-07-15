@@ -19,34 +19,12 @@ import java.util.UUID;
  * Created by Demoniaque.
  */
 @PacketRegister(Side.CLIENT)
-public class PacketAddBeam extends PacketBase {
-
-	@Save
-	private Vec3d origin;
-	@Save
-	private Vec3d target;
-	@Save
-	private Color color;
-	@Save
-	private UUID uuid;
-
-	public PacketAddBeam() {
-	}
-
-	public PacketAddBeam(Vec3d origin, Vec3d target, Color color, UUID uuid) {
-		this.origin = origin;
-		this.target = target;
-		this.color = color;
-		this.uuid = uuid;
-	}
+public class PacketUpdateBeamRender extends PacketBase {
 
 	@Override
 	public void handle(@NotNull MessageContext messageContext) {
 		if (messageContext.side.isServer()) return;
 
-		World world = LibrarianLib.PROXY.getClientPlayer().world;
-		if (world == null) return;
-
-		BeamRenderer.addBeam(world, origin, target, color, uuid);
+		BeamRenderer.update();
 	}
 }

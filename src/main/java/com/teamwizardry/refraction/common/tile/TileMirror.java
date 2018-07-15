@@ -1,23 +1,27 @@
 package com.teamwizardry.refraction.common.tile;
 
 import com.teamwizardry.librarianlib.features.autoregister.TileRegister;
+import com.teamwizardry.librarianlib.features.base.block.tile.TileModTickable;
+import com.teamwizardry.refraction.Refraction;
 import com.teamwizardry.refraction.api.Beam;
+import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.Vec3d;
+import org.lwjgl.opengl.ARBTextureSwizzle;
 
-/**
- * Created by Demoniaque
- */
-@TileRegister("mirror")
-public class TileMirror extends TileMirrorBase {
+import java.awt.*;
+import java.util.UUID;
+
+@TileRegister(Refraction.MOD_ID)
+public class TileMirror extends TileModTickable {
+
+	private UUID uuid = UUID.nameUUIDFromBytes((pos.toLong() + "").getBytes());
 
 	@Override
-	protected void handleBeam(Beam beam, Vec3d incomingDir, Vec3d normal) {
-		if (incomingDir.dotProduct(normal) > 0)
-			return; // hit the back of the mirror, shouldn't reflect
+	public void tick() {
 
-		Vec3d outgoingDir = incomingDir.subtract(normal.scale(incomingDir.dotProduct(normal) * 2));
-
-		//TODO setPotency((int) (beam.getAlpha() / 1.05))).
-		beam.createSimilarBeam(outgoingDir).spawn();;
+		Minecraft.getMinecraft().player.sendChatMessage(uuid.toString());
+		new Beam(world, new Vec3d(getPos()).addVector(0.5, 0.5, 0.5), new Vec3d(1, 0, 0), 25, Color.CYAN)
+		.setUUID(uuid)
+		.spawn();
 	}
 }

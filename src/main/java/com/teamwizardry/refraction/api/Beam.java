@@ -4,7 +4,6 @@ import com.google.common.base.Predicate;
 import com.teamwizardry.librarianlib.features.network.PacketHandler;
 import com.teamwizardry.librarianlib.features.saving.Savable;
 import com.teamwizardry.librarianlib.features.saving.Save;
-import com.teamwizardry.refraction.api.utils.PosUtils;
 import com.teamwizardry.refraction.api.utils.RayTrace;
 import com.teamwizardry.refraction.common.network.PacketAddBeam;
 import net.minecraft.entity.Entity;
@@ -42,7 +41,7 @@ public class Beam {
 	public final Set<UUID> entitySkipList = new HashSet<>();
 	@Save
 	@NotNull
-	public final UUID uuid = UUID.randomUUID();
+	public UUID uuid = UUID.randomUUID();
 	@Save
 	public final double range;
 	@Save
@@ -58,6 +57,11 @@ public class Beam {
 		this.slope = slope;
 		this.range = range;
 		this.color = color;
+	}
+
+	public Beam setUUID(UUID uuid) {
+		this.uuid = uuid;
+		return this;
 	}
 
 	public Beam addEntityToSkip(@NotNull UUID uuid) {
@@ -104,8 +108,8 @@ public class Beam {
 	/**
 	 * Will create a similar beam that starts and ends in the positions you specify
 	 *
-	 * @param init The initial location or origin to spawn the beam from.
-	 * @param slope  The direction or slope or final destination or location the beam will point to.
+	 * @param init  The initial location or origin to spawn the beam from.
+	 * @param slope The direction or slope or final destination or location the beam will point to.
 	 * @return The new beam created. Can be modified as needed.
 	 */
 	public Beam createSimilarBeam(Vec3d init, Vec3d slope) {
@@ -121,12 +125,11 @@ public class Beam {
 	 */
 	public Beam createSimilarBeam(Vec3d init, Vec3d slope, Color color) {
 		return new Beam(world, init, slope, range, color)
-				.setBounceLimit(bounceLimit-bouncedTimes);
+				.setBounceLimit(bounceLimit - bouncedTimes);
 	}
 
 	public boolean spawn() {
 		if (world.isRemote) return false;
-		//if (color.getAlpha() <= 1) return false;
 		if (--bouncedTimes > bounceLimit) return false;
 
 		RayTraceResult result = new RayTrace(world, slope, origin, range)
@@ -142,7 +145,7 @@ public class Beam {
 		if (result.hitVec == null) return false;
 		if (result.hitVec.distanceTo(origin) < 0.2) return false;
 
-		PacketHandler.NETWORK.sendToAll(new PacketAddBeam(origin, result.hitVec, color));
+		PacketHandler.NETWORK.sendToAll(new PacketAddBeam(origin, result.hitVec, color, uuid));
 
 		return true;
 	}

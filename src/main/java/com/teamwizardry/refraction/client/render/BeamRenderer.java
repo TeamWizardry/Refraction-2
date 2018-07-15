@@ -34,6 +34,7 @@ import java.util.UUID;
 import java.util.function.Predicate;
 
 import static org.lwjgl.opengl.GL11.GL_ONE;
+import static org.lwjgl.opengl.GL11.GL_SMOOTH;
 import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
 
 /**
@@ -117,54 +118,60 @@ public class BeamRenderer {
 			Vec3d start = beamRenderInfo.origin;
 			Vec3d end = beamRenderInfo.target;
 			Vec3d diff = end.subtract(start);
-
-			Vec3d look = Minecraft.getMinecraft().player.getLook(0);
-			float rY = Utils.signAngle(new Vec3d(0, 0, 1), (new Vec3d(look.x, 0, look.z)).normalize(), new Vec3d(0, 1, 0));
-			float rX = Utils.signAngle(new Vec3d(0, 1, 0), look, null);
+			double diameter = 0.15;
+			double radius = diameter / 2.0;
 
 			GlStateManager.translate(start.x, start.y, start.z);
-			//GlStateManager.rotate(rY, 0f, 1f, 0f);
-			//GlStateManager.rotate(90 + rX, 1f, 0f, 0f);
-
-			Vec3d d = new Vec3d(0, (0.25 * color.getAlpha() / 255f) / 2.0, 0);
-			Vec3d d2 = new Vec3d((0.25 * color.getAlpha() / 255f) / 2.0, 0, 0);
-			Vec3d d3 = new Vec3d(0, 0, (0.25 * color.getAlpha() / 255f) / 2.0);
-
-			double vMin = 0, vMax = 1;
-			double uMin = 0, uMax = 1;
 
 			Tessellator tessellator = Tessellator.getInstance();
 			BufferBuilder vb = tessellator.getBuffer();
 
 			vb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
 			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
-			vb.pos(0, 0.25, 0).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
-			vb.pos(diff.x, diff.y + 0.25, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(0, radius, 0).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y + radius, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
 			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
+			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+			vb.pos(0, -radius, 0).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y - radius, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
+			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+			vb.pos(0, 0, radius).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z + radius).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
+			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+			vb.pos(0, 0, -radius).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z - radius).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
+			color = new Color(1f, 1f, 1f, 1f);
+			radius = radius / 4.0;
+
+			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+			vb.pos(0, radius, 0).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y + radius, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
+			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+			vb.pos(0, -radius, 0).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y - radius, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
+			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+			vb.pos(0, 0, radius).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z + radius).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
+			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+			vb.pos(0, 0, -radius).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z - radius).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
 			tessellator.draw();
 
-			if (false) {
-				vb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR);
-				pos(vb, start.add(d)).tex(uMin, vMin).color(color.getRed(), color.getGreen(), color.getBlue(), Math.max(128, color.getAlpha())).endVertex();
-				pos(vb, start.subtract(d)).tex(uMin, vMax).color(color.getRed(), color.getGreen(), color.getBlue(), Math.max(128, color.getAlpha())).endVertex();
-				pos(vb, end.subtract(d)).tex(uMax, vMax).color(color.getRed(), color.getGreen(), color.getBlue(), Math.max(128, color.getAlpha())).endVertex();
-				pos(vb, end.add(d)).tex(uMax, vMin).color(color.getRed(), color.getGreen(), color.getBlue(), Math.max(128, color.getAlpha())).endVertex();
-				tessellator.draw();
-
-				vb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR);
-				pos(vb, start.add(d2)).tex(uMin, vMin).color(color.getRed(), color.getGreen(), color.getBlue(), Math.max(128, color.getAlpha())).endVertex();
-				pos(vb, start.subtract(d2)).tex(uMin, vMax).color(color.getRed(), color.getGreen(), color.getBlue(), Math.max(128, color.getAlpha())).endVertex();
-				pos(vb, end.subtract(d2)).tex(uMax, vMax).color(color.getRed(), color.getGreen(), color.getBlue(), Math.max(128, color.getAlpha())).endVertex();
-				pos(vb, end.add(d2)).tex(uMax, vMin).color(color.getRed(), color.getGreen(), color.getBlue(), Math.max(128, color.getAlpha())).endVertex();
-				tessellator.draw();
-
-				vb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR);
-				pos(vb, start.add(d3)).tex(uMin, vMin).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
-				pos(vb, start.subtract(d3)).tex(uMin, vMax).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
-				pos(vb, end.subtract(d3)).tex(uMax, vMax).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
-				pos(vb, end.add(d3)).tex(uMax, vMin).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
-				tessellator.draw();
-			}
 			GlStateManager.popMatrix();
 		});
 

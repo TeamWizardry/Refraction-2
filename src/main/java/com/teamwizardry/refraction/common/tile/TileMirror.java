@@ -19,8 +19,7 @@ public class TileMirror extends TileModTickable {
 	@Override
 	public void tick() {
 
-		Minecraft.getMinecraft().player.sendChatMessage(uuid.toString());
-		new Beam(world, new Vec3d(getPos()).addVector(0.5, 0.5, 0.5), new Vec3d(1, 0, 0), 25, Color.CYAN)
+		new Beam(world, new Vec3d(getPos()).addVector(0.5, 0.5, 0.5), new Vec3d(1, 0, 0), 25, Color.RED)
 		.setUUID(uuid)
 		.spawn();
 	}

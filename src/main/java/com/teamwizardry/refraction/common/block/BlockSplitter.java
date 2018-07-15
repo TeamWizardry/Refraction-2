@@ -25,8 +25,8 @@ public class BlockSplitter extends BlockMirrorBase {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void initModel() {
-		ClientRegistry.bindTileEntitySpecialRenderer(TileSplitter.class, new RenderMirror("blocks/mirror_splitter"));
+	public void initModel() {//"blocks/mirror_splitter"
+		ClientRegistry.bindTileEntitySpecialRenderer(TileSplitter.class, new RenderMirror());
 	}
 
 	@Nullable

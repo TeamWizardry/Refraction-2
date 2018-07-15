@@ -1,8 +1,14 @@
 package com.teamwizardry.refraction.common.tile;
 
 import com.teamwizardry.librarianlib.features.autoregister.TileRegister;
+import com.teamwizardry.librarianlib.features.tesr.TileRenderer;
+import com.teamwizardry.refraction.Refraction;
 import com.teamwizardry.refraction.api.Beam;
+import com.teamwizardry.refraction.client.render.RenderMirror;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
+
+import javax.annotation.Nonnull;
 
 /**
  * Created by Demoniaque
@@ -17,5 +23,11 @@ public class TileSplitter extends TileMirrorBase {
 		//TODO .setPotency(beam.getColor().getAlpha() / 2)
 		beam.createSimilarBeam(outgoingDir).spawn();
 		beam.createSimilarBeam(incomingDir).spawn();
+	}
+
+	@Nonnull
+	@Override
+	public ResourceLocation getMirrorHeadLocation() {
+		return new ResourceLocation(Refraction.MOD_ID, "blocks/mirror_splitter");
 	}
 }

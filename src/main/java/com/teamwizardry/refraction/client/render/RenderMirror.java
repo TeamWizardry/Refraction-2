@@ -1,7 +1,7 @@
 package com.teamwizardry.refraction.client.render;
 
 import com.teamwizardry.refraction.ClientProxy;
-import com.teamwizardry.refraction.api.Constants;
+import com.teamwizardry.refraction.Refraction;
 import com.teamwizardry.refraction.common.tile.TileMirrorBase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -23,12 +23,8 @@ import org.lwjgl.opengl.GL11;
 public class RenderMirror extends TileEntitySpecialRenderer<TileMirrorBase> {
 
 	private IBakedModel modelArms, modelMirror;
-	private String customMirrorPlateTexLocation = null;
 
-	public RenderMirror(String customMirrorPlateTexLocation ) {
-		this();
-		this.customMirrorPlateTexLocation = customMirrorPlateTexLocation;
-	}
+	//private String customMirrorPlateTexLocation = null;
 
 	public RenderMirror() {
 		MinecraftForge.EVENT_BUS.register(this);
@@ -39,11 +35,11 @@ public class RenderMirror extends TileEntitySpecialRenderer<TileMirrorBase> {
 		modelArms = null;
 	}
 
-	private void getBakedModels() {
+	private void getBakedModels(TileMirrorBase te) {
 		IModel model = null;
 		if (modelArms == null) {
 			try {
-				model = ModelLoaderRegistry.getModel(new ResourceLocation(Constants.MOD_ID, "block/mirror_arms"));
+				model = ModelLoaderRegistry.getModel(new ResourceLocation(Refraction.MOD_ID, "block/mirror_arms"));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -52,20 +48,17 @@ public class RenderMirror extends TileEntitySpecialRenderer<TileMirrorBase> {
 		}
 		if (modelMirror == null) {
 			try {
-				model = ModelLoaderRegistry.getModel(new ResourceLocation(Constants.MOD_ID, "block/mirror_head"));
+				model = ModelLoaderRegistry.getModel(new ResourceLocation(Refraction.MOD_ID, "block/mirror_head"));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			modelMirror = model.bake(model.getDefaultState(), DefaultVertexFormats.ITEM,
-					location -> {
-						if (customMirrorPlateTexLocation != null && location.toString().equals(Constants.MOD_ID + ":blocks/mirror_normal"))
-							location = new ResourceLocation(Constants.MOD_ID, customMirrorPlateTexLocation);
-						return Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(location.toString());
-					});
+					location -> Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(te.getMirrorHeadLocation().toString()));
 		}
 	}
 
 	@Override
+	//public void render(float partialTicks, int destroyStage, float alpha) {
 	public void render(TileMirrorBase te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
 		double subtractedMillis = (te.getWorld().getTotalWorldTime() - te.worldTime);
 		double transitionTimeMaxX = Math.max(3, Math.min(Math.abs((te.rotPrevX - te.rotDestX) / 2.0), 10)),
@@ -75,7 +68,7 @@ public class RenderMirror extends TileEntitySpecialRenderer<TileMirrorBase> {
 		GlStateManager.pushMatrix();
 		GlStateManager.enableBlend();
 		GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-		getBakedModels();
+		getBakedModels(te);
 
 		bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 		if (Minecraft.isAmbientOcclusionEnabled())

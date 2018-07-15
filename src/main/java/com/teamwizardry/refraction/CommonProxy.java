@@ -4,6 +4,7 @@ import com.teamwizardry.librarianlib.features.network.PacketHandler;
 import com.teamwizardry.refraction.client.render.BeamRenderInfo;
 import com.teamwizardry.refraction.client.render.BeamRenderer;
 import com.teamwizardry.refraction.common.ModBlocks;
+import com.teamwizardry.refraction.common.ModItems;
 import com.teamwizardry.refraction.common.network.PacketAddBeam;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -18,7 +19,7 @@ public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 
 		ModBlocks.init();
-
+		ModItems.init();
 	}
 
 	public void init(FMLInitializationEvent event) {

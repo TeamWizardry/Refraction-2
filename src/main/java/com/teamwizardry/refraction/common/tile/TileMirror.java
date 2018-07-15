@@ -1,31 +1,28 @@
 package com.teamwizardry.refraction.common.tile;
 
 import com.teamwizardry.librarianlib.features.autoregister.TileRegister;
-import com.teamwizardry.librarianlib.features.base.block.tile.TileModTickable;
-import com.teamwizardry.librarianlib.features.saving.Save;
 import com.teamwizardry.refraction.Refraction;
 import com.teamwizardry.refraction.api.Beam;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
-import java.awt.*;
-import java.util.UUID;
+import javax.annotation.Nonnull;
 
-@TileRegister(Refraction.MOD_ID)
-public class TileMirror extends TileModTickable {
-
-	@Save
-	private UUID uuid;
+@TileRegister("mirror")
+public class TileMirror extends TileMirrorBase {
 
 	@Override
-	public void onLoad() {
-		uuid = UUID.nameUUIDFromBytes((pos.toLong() + "").getBytes());
+	protected void handleBeam(Beam beam, Vec3d incomingDir, Vec3d normal) {
+		Vec3d outgoingDir = incomingDir.subtract(normal.scale(incomingDir.dotProduct(normal) * 2));
+		if (incomingDir.dotProduct(normal) > 0) return; // hit the back of the mirror, shouldn't reflect
+
+		//TODO setPotency((int) (beam.getAlpha() / 1.05))).
+		beam.createSimilarBeam(outgoingDir).spawn();
 	}
 
+	@Nonnull
 	@Override
-	public void tick() {
-
-		new Beam(world, new Vec3d(getPos()).addVector(0.5, 0.5, 0.5), new Vec3d(1, 0, 0), 25, Color.RED)
-		.setUUID(uuid)
-		.spawn();
+	public ResourceLocation getMirrorHeadLocation() {
+		return new ResourceLocation(Refraction.MOD_ID, "blocks/mirror_normal");
 	}
 }

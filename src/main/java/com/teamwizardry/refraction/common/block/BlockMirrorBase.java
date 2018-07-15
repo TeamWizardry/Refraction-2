@@ -3,6 +3,7 @@ package com.teamwizardry.refraction.common.block;
 import com.teamwizardry.librarianlib.features.base.block.tile.BlockModContainer;
 import com.teamwizardry.librarianlib.features.math.Matrix4;
 import com.teamwizardry.librarianlib.features.utilities.client.TooltipHelper;
+import com.teamwizardry.refraction.Refraction;
 import com.teamwizardry.refraction.api.*;
 import com.teamwizardry.refraction.common.item.ItemScrewDriver;
 import com.teamwizardry.refraction.common.tile.TileMirrorBase;
@@ -119,7 +120,7 @@ public abstract class BlockMirrorBase extends BlockModContainer implements IBloc
 
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-		TooltipHelper.addToTooltip(tooltip, "simple_name." + Constants.MOD_ID + ":" + getRegistryName().getResourcePath());
+		TooltipHelper.addToTooltip(tooltip, "simple_name." + Refraction.MOD_ID + ":" + getRegistryName().getResourcePath());
 	}
 
 	@Override

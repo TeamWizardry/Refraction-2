@@ -4,6 +4,7 @@ import com.teamwizardry.librarianlib.features.base.block.tile.TileModTickable;
 import com.teamwizardry.librarianlib.features.math.Matrix4;
 import com.teamwizardry.librarianlib.features.saving.Save;
 import com.teamwizardry.refraction.api.Beam;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -80,6 +81,10 @@ public abstract class TileMirrorBase extends TileModTickable {
 	}
 
 	protected abstract void handleBeam(Beam beam, Vec3d incomingDir, Vec3d normal);
+
+	@Nonnull
+	@SideOnly(Side.CLIENT)
+	public abstract ResourceLocation getMirrorHeadLocation();
 
 	@Override
 	public void tick() {

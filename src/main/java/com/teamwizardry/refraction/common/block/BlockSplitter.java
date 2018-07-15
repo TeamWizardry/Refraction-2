@@ -1,7 +1,8 @@
 package com.teamwizardry.refraction.common.block;
 
 import com.teamwizardry.refraction.client.render.RenderMirror;
-import com.teamwizardry.refraction.common.tile.TileMirror;
+import com.teamwizardry.refraction.common.tile.TileSplitter;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
@@ -9,28 +10,28 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 
 /**
  * Created by Demoniaque
  */
-public class BlockMirror extends BlockMirrorBase {
+public class BlockSplitter extends BlockMirrorBase {
 
-	public BlockMirror() {
-		super("mirror", Material.GLASS);
+	public BlockSplitter() {
+		super("splitter", Material.IRON);
+		setHardness(1F);
+		setSoundType(SoundType.METAL);
 	}
 
 	@SideOnly(Side.CLIENT)
 	public void initModel() {
-		ClientRegistry.bindTileEntitySpecialRenderer(TileMirror.class, new RenderMirror());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileSplitter.class, new RenderMirror("blocks/mirror_splitter"));
 	}
 
 	@Nullable
 	@Override
-	public TileEntity createTileEntity(@NotNull World world, @NotNull IBlockState state) {
-		return new TileMirror();
+	public TileEntity createTileEntity(World world, IBlockState iBlockState) {
+		return new TileSplitter();
 	}
-
-
 }

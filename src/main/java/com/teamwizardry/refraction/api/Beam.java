@@ -8,6 +8,7 @@ import com.teamwizardry.refraction.api.utils.PosUtils;
 import com.teamwizardry.refraction.api.utils.RayTrace;
 import com.teamwizardry.refraction.common.network.PacketAddBeam;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -78,6 +79,7 @@ public class Beam {
 				.setIgnoreBlocksWithoutBoundingBoxes(false)
 				.setReturnLastUncollidableBlock(true)
 				.setSkipEntities(ignoreEntities)
+				.addBlockToSkip(new BlockPos(origin))
 				.setEntityFilter(input -> {
 					if (input == null) return false;
 					return !entitySkipList.contains(input.getUniqueID());

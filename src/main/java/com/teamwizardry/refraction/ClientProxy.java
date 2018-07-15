@@ -1,5 +1,6 @@
 package com.teamwizardry.refraction;
 
+import com.teamwizardry.refraction.common.ModBlocks;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -13,6 +14,8 @@ public class ClientProxy extends CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
+
+		ModBlocks.initModels();
 	}
 
 	public void init(FMLInitializationEvent event) {

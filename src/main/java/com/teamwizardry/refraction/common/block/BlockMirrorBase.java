@@ -5,14 +5,13 @@ import com.teamwizardry.librarianlib.features.math.Matrix4;
 import com.teamwizardry.librarianlib.features.utilities.client.TooltipHelper;
 import com.teamwizardry.refraction.api.*;
 import com.teamwizardry.refraction.common.item.ItemScrewDriver;
-import com.teamwizardry.refraction.common.tile.TileMirror;
 import com.teamwizardry.refraction.common.tile.TileMirrorBase;
-import com.teamwizardry.refraction.common.tile.TileSplitter;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -37,13 +36,19 @@ public abstract class BlockMirrorBase extends BlockModContainer implements IBloc
 		super(name, material);
 	}
 
+	@Nullable
 	private TileMirrorBase getTE(World world, BlockPos pos) {
-		return (TileMirrorBase) world.getTileEntity(pos);
+		TileEntity tile = world.getTileEntity(pos);
+		if (!(tile instanceof TileMirrorBase)) return null;
+		return (TileMirrorBase) tile;
 	}
 
 	@Override
 	public boolean handleBeam(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull Beam beam) {
-		getTE(world, pos).handle(beam);
+		TileMirrorBase te = getTE(world, pos);
+		if (te == null) return false;
+
+		te.handle(beam);
 		return true;
 	}
 

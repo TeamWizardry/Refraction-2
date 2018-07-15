@@ -10,6 +10,20 @@
       </configuration>
     </facet>
   </component>
+  <component name="McpModuleSettings">
+    <option name="mappingFiles">
+      <set>
+        <option value="C:\Users\saad\.gradle\caches\minecraft\de\oceanlabs\mcp\mcp_snapshot\20180601\1.12.2\srgs\mcp.exc" />
+        <option value="C:\Users\saad\.gradle\caches\minecraft\de\oceanlabs\mcp\mcp_snapshot\20180601\1.12.2\srgs\mcp-notch.srg" />
+        <option value="C:\Users\saad\.gradle\caches\minecraft\de\oceanlabs\mcp\mcp_snapshot\20180601\1.12.2\srgs\srg.exc" />
+        <option value="C:\Users\saad\.gradle\caches\minecraft\de\oceanlabs\mcp\mcp_snapshot\20180601\1.12.2\srgs\mcp-srg.srg" />
+        <option value="C:\Users\saad\.gradle\caches\minecraft\de\oceanlabs\mcp\mcp_snapshot\20180601\1.12.2\srgs\notch-mcp.srg" />
+        <option value="C:\Users\saad\.gradle\caches\minecraft\de\oceanlabs\mcp\mcp_snapshot\20180601\1.12.2\srgs\notch-srg.srg" />
+      </set>
+    </option>
+    <option name="mcpVersion" value="snapshot_20180601" />
+    <option name="minecraftVersion" value="1.12.2" />
+  </component>
   <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/build/classes/main" />
     <output-test url="file://$MODULE_DIR$/build/classes/test" />

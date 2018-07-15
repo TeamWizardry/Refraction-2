@@ -36,24 +36,17 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library name="Gradle: Forgelin-1.5.1">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/Forgelin-1.5.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: librarianlib-4.0-20170716.005924-21-deobf">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/librarianlib-4.0-20170716.005924-21-deobf.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="Gradle: com.teamwizardry.librarianlib:librarianlib-1.12.2:4.10-SNAPSHOT:deobf" level="project" />
+    <orderEntry type="library" name="Gradle: deobf.mezz.jei:jei_1.12:4.7.5.86" level="project" />
+    <orderEntry type="library" name="Gradle: net.shadowfacts:Forgelin:1.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jre8:1.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-reflect:1.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-runtime:1.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:15.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core:0.19.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:0.19.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.0" level="project" />
     <orderEntry type="library" name="Gradle: compileDummy" level="project" />
     <orderEntry type="library" name="Gradle: providedDummy" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.findbugs:jsr305:3.0.1" level="project" />
@@ -115,6 +108,7 @@
     <orderEntry type="library" name="Gradle: org.lwjgl.lwjgl:lwjgl-platform:2.9.4-nightly-20150209:natives-linux" level="project" />
     <orderEntry type="library" name="Gradle: org.lwjgl.lwjgl:lwjgl-platform:2.9.4-nightly-20150209:natives-osx" level="project" />
     <orderEntry type="library" name="Gradle: net.minecraftforge:forgeSrc:1.12.2-14.23.1.2555" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: mezz.jei:jei_1.12:4.7.5.86" level="project" />
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>

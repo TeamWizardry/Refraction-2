@@ -71,6 +71,7 @@ public abstract class BlockMirrorBase extends BlockModContainer implements IBloc
 	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
 		EnumFacing facing = EnumFacing.getFacingFromVector((float) placer.getLook(0).x, (float) placer.getLook(0).y, (float) placer.getLook(0).z);
 		TileMirrorBase tile = getTE(worldIn, pos);
+		if (tile == null) return;
 
 		float x = 0, y = 0;
 
@@ -123,22 +124,28 @@ public abstract class BlockMirrorBase extends BlockModContainer implements IBloc
 
 	@Override
 	public float getRotX(World worldIn, BlockPos pos) {
-		return getTE(worldIn, pos).getRotX();
+		TileMirrorBase te = getTE(worldIn, pos);
+		return te == null ? 0 : te.getRotX();
 	}
 
 	@Override
 	public void setRotX(World worldIn, BlockPos pos, float x) {
-		getTE(worldIn, pos).setRotX(x);
+		TileMirrorBase te = getTE(worldIn, pos);
+		if (te == null) return;
+		te.setRotX(x);
 	}
 
 	@Override
 	public float getRotY(World worldIn, BlockPos pos) {
-		return getTE(worldIn, pos).getRotY();
+		TileMirrorBase te = getTE(worldIn, pos);
+		return te == null ? 0 : te.getRotY();
 	}
 
 	@Override
 	public void setRotY(World worldIn, BlockPos pos, float y) {
-		getTE(worldIn, pos).setRotY(y);
+		TileMirrorBase te = getTE(worldIn, pos);
+		if (te == null) return;
+		te.setRotY(y);
 	}
 
 	@Override

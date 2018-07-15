@@ -21,24 +21,30 @@ minecraft {
     version = project.forgeVersion
     runDir = "run"
 
-    // the mappings can be changed at any time, and must be in the following format.
-    // snapshot_YYYYMMDD   snapshot are built nightly.
-    // stable_#            stables are built at the discretion of the MCP team.
-    // Use non-default mappings at your own risk. they may not always work.
-    // simply re-run your setup task after changing the mappings to update your workspace.
     mappings = project.mcpVersion
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+
+  //  replace 'GRADLE:VERSION', "$modversion"
+    replace 'required-before:librarianlib', 'required-before:librarianlib@' + liblib_version
+
+    replaceIn 'Wizardry.java'
+
+    clientJvmArgs = ["-Dfml.coreMods.load=$core_plugin,com.teamwizardry.librarianlib.asm.LibLibCorePlugin"]
+    serverJvmArgs = ["-Dfml.coreMods.load=$core_plugin,com.teamwizardry.librarianlib.asm.LibLibCorePlugin"]
 }
 
 repositories {
     mavenCentral()
-    //maven {
-    //    url = "https://maven.bluexin.be/repository/releases/"
-    //}
+    maven { url = "http://maven.bluexin.be/repository/snapshots/" }
+    maven { url = "http://dvs1.progwml6.com/files/maven" }
+    maven { url = "http://tehnut.info/maven" }
+    maven { url = "http://maven.tterrag.com/" }
+    maven { url = "http://maven.thiakil.com" }
 }
 
 dependencies {
-    //compile "com.teamwizardry.librarianlib:librarianlib:3.1.5:deobf"
+    compile "com.teamwizardry.librarianlib:librarianlib-1.12.2:$liblib_version-SNAPSHOT:deobf"
+    deobfCompile "mezz.jei:jei_1.12:$jei_version:api"
+    runtime "mezz.jei:jei_1.12:$jei_version"
 }
 
 processResources {

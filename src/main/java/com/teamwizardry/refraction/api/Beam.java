@@ -10,6 +10,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.HashSet;
@@ -50,6 +51,9 @@ public class Beam {
 	@Nullable
 	public Vec3d endLoc;
 
+	@Nonnull
+	public Set<String> tags = new HashSet<>();
+
 	public Beam(@NotNull World world, @NotNull Vec3d origin, @NotNull Vec3d slope, double range, @NotNull Color color, @NotNull UUID uuid) {
 		this(world, origin, slope, range, color.getRed(), color.getGreen(), color.getBlue(), uuid);
 	}
@@ -63,6 +67,25 @@ public class Beam {
 		this.green = green;
 		this.blue = blue;
 		this.uuid = uuid;
+	}
+
+	public Beam setTags(Set<String> tags) {
+		this.tags = tags;
+		return this;
+	}
+
+	public Beam addTag(String tag) {
+		tags.add(tag);
+		return this;
+	}
+
+	public Beam removeTag(String tag) {
+		tags.remove(tag);
+		return this;
+	}
+
+	public boolean hasTag(String tag) {
+		return tags.contains(tag);
 	}
 
 	public Beam setUUID(UUID uuid) {
@@ -150,6 +173,7 @@ public class Beam {
 	 */
 	public Beam createSimilarBeam(Vec3d init, Vec3d slope, Color color, UUID uuid) {
 		return new Beam(world, init, slope, range, color, uuid)
+				.setTags(tags)
 				.setEntityskipList(entitySkipList)
 				.setBounceLimit(bounceLimit)
 				.setBouncedTimes(bouncedTimes);
@@ -164,6 +188,7 @@ public class Beam {
 	 */
 	public Beam createSimilarBeam(Vec3d init, Vec3d slope, int red, int green, int blue, UUID uuid) {
 		return new Beam(world, init, slope, range, red, green, blue, uuid)
+				.setTags(tags)
 				.setEntityskipList(entitySkipList)
 				.setBounceLimit(bounceLimit)
 				.setBouncedTimes(bouncedTimes);

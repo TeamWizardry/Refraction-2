@@ -11,6 +11,7 @@ public class ModBlocks {
 	public static BlockSplitter SPLITTER;
 	public static BlockSolarPanel SOLARPANEL;
 	public static BlockReflectionChamber REFLECTCHAMBER;
+	public static BlockPrism PRISM;
 
 	public static void init() {
 		MIRROR = new BlockMirror();
@@ -18,6 +19,7 @@ public class ModBlocks {
 		SPLITTER = new BlockSplitter();
 		SOLARPANEL = new BlockSolarPanel();
 		REFLECTCHAMBER = new BlockReflectionChamber();
+		PRISM = new BlockPrism();
 	}
 
 	@SideOnly(Side.CLIENT)

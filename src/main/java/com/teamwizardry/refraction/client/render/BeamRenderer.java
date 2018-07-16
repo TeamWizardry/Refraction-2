@@ -36,11 +36,6 @@ public class BeamRenderer {
 	private static Set<BeamRenderInfo> beams = new HashSet<>();
 
 	@SideOnly(Side.CLIENT)
-	private static BufferBuilder pos(BufferBuilder vb, Vec3d pos) {
-		return vb.pos(pos.x, pos.y, pos.z);
-	}
-
-	@SideOnly(Side.CLIENT)
 	public static void addBeam(World world, Vec3d origin, Vec3d target, int red, int green, int blue, UUID uuid) {
 		for (BeamRenderInfo info : beams) {
 			if (info.uuid.equals(uuid)) {
@@ -106,7 +101,7 @@ public class BeamRenderer {
 		beams.forEach(beamRenderInfo -> {
 			GlStateManager.pushMatrix();
 
-			// TODO: FIX COLOR OVERFLOW
+			// TODO: FIX COLOR OVERFLOW AND DIAMETER
 			Color color = new Color(
 					MathHelper.clamp(beamRenderInfo.red, 0, 255),
 					MathHelper.clamp(beamRenderInfo.green, 0, 255),

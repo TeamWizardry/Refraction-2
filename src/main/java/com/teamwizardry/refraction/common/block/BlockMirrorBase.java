@@ -4,7 +4,10 @@ import com.teamwizardry.librarianlib.features.base.block.tile.BlockModContainer;
 import com.teamwizardry.librarianlib.features.math.Matrix4;
 import com.teamwizardry.librarianlib.features.utilities.client.TooltipHelper;
 import com.teamwizardry.refraction.Refraction;
-import com.teamwizardry.refraction.api.*;
+import com.teamwizardry.refraction.api.Beam;
+import com.teamwizardry.refraction.api.IBlockCollisionRayTrace;
+import com.teamwizardry.refraction.api.ILightSink;
+import com.teamwizardry.refraction.api.IPrecision;
 import com.teamwizardry.refraction.common.item.ItemScrewDriver;
 import com.teamwizardry.refraction.common.tile.TileMirrorBase;
 import net.minecraft.block.material.Material;
@@ -49,7 +52,7 @@ public abstract class BlockMirrorBase extends BlockModContainer implements IBloc
 		TileMirrorBase te = getTE(world, pos);
 		if (te == null) return false;
 
-		te.handle(beam);
+		te.handleBeam(beam);
 		return true;
 	}
 

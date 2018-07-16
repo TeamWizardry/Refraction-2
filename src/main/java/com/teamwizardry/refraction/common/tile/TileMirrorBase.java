@@ -4,6 +4,7 @@ import com.teamwizardry.librarianlib.features.base.block.tile.TileModTickable;
 import com.teamwizardry.librarianlib.features.math.Matrix4;
 import com.teamwizardry.librarianlib.features.saving.Save;
 import com.teamwizardry.refraction.api.Beam;
+import com.teamwizardry.refraction.api.ITileLightSink;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
@@ -14,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
-public abstract class TileMirrorBase extends TileModTickable {
+public abstract class TileMirrorBase extends TileModTickable implements ITileLightSink {
 
 	@Save
 	public float rotXUnpowered, rotYUnpowered, rotXPowered = Float.NaN, rotYPowered = Float.NaN;
@@ -60,7 +61,8 @@ public abstract class TileMirrorBase extends TileModTickable {
 		markDirty();
 	}
 
-	public void handle(@NotNull Beam beam) {
+	@Override
+	public boolean handleBeam(@NotNull Beam beam) {
 		float x, y;
 		if (powered) {
 			x = rotXPowered;
@@ -70,7 +72,7 @@ public abstract class TileMirrorBase extends TileModTickable {
 			y = rotYUnpowered;
 		}
 
-		if (beam.endLoc == null) return;
+		if (beam.endLoc == null) return false;
 
 		Matrix4 matrix = new Matrix4();
 		matrix.rotate(Math.toRadians(y), new Vec3d(0, 1, 0));
@@ -79,10 +81,10 @@ public abstract class TileMirrorBase extends TileModTickable {
 		Vec3d normal = matrix.apply(new Vec3d(0, 1, 0));
 		Vec3d incomingDir = beam.slope;
 
-		handleBeam(beam, incomingDir, normal);
+		return handleMirrorBeam(beam, incomingDir, normal);
 	}
 
-	protected abstract void handleBeam(Beam beam, Vec3d incomingDir, Vec3d normal);
+	protected abstract boolean handleMirrorBeam(Beam beam, Vec3d incomingDir, Vec3d normal);
 
 	@Nonnull
 	@SideOnly(Side.CLIENT)

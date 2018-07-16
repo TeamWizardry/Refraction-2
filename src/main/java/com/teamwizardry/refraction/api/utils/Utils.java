@@ -5,6 +5,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
+import java.util.List;
 import java.util.UUID;
 
 public class Utils {
@@ -27,6 +28,31 @@ public class Utils {
 
 	public static UUID createUUID(BlockPos pos, int index) {
 		return Utils.createUUID(pos.toLong() + "-" + index);
+	}
+
+	/**
+	 * Takes several cartesian vectors, and returns one going in the average
+	 * direction, regardless of vector magnitues
+	 *
+	 * @param vectors The list of vectors to average. Will be normalized.
+	 * @return The average direction of all the given vectors.
+	 */
+	public static Vec3d averageDirection(List<Vec3d> vectors) {
+		if (vectors == null) return Vec3d.ZERO;
+		if (vectors.isEmpty()) return Vec3d.ZERO;
+		double x = 0;
+		double y = 0;
+		double z = 0;
+
+		for (Vec3d vec : vectors) {
+			if (vec == null) continue;
+			vec.normalize();
+			x += vec.x;
+			y += vec.y;
+			z += vec.z;
+		}
+
+		return new Vec3d(x, y, z);
 	}
 
 	public static float signAngle(Vec3d a, Vec3d b, Vec3d n) {

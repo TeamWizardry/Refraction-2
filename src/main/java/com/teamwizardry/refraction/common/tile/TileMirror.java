@@ -15,13 +15,14 @@ import javax.annotation.Nonnull;
 public class TileMirror extends TileMirrorBase {
 
 	@Override
-	protected void handleBeam(Beam beam, Vec3d incomingDir, Vec3d normal) {
-		if (incomingDir.dotProduct(normal) > 0) return; // hit the back of the mirror, shouldn't reflect
+	protected boolean handleMirrorBeam(Beam beam, Vec3d incomingDir, Vec3d normal) {
+		if (incomingDir.dotProduct(normal) > 0) return false;
 
 		Vec3d outgoingDir = incomingDir.subtract(normal.scale(incomingDir.dotProduct(normal) * 2));
 
 		//TODO setPotency((int) (beam.getAlpha() / 1.05))).
 		beam.createSimilarBeam(beam.endLoc, outgoingDir, Utils.createUUID(pos, beam)).spawn();
+		return true;
 	}
 
 	@SideOnly(Side.CLIENT)

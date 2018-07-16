@@ -46,6 +46,13 @@ public class BlockReflectionChamber extends BlockModContainer implements ILightS
 		ClientRegistry.bindTileEntitySpecialRenderer(TileReflectionChamber.class, new RenderReflectionChamber());
 	}
 
+	@Nullable
+	private TileReflectionChamber getTE(World world, BlockPos pos) {
+		TileEntity tile = world.getTileEntity(pos);
+		if (!(tile instanceof TileReflectionChamber)) return null;
+		return (TileReflectionChamber) tile;
+	}
+
 	@Nonnull
 	public List<EnumFacing> getAvailableFacings(@Nonnull IBlockState state, @Nonnull IBlockAccess source, @Nonnull BlockPos pos, @Nonnull EnumFacing facing) {
 		return Lists.newArrayList(EnumFacing.VALUES);
@@ -81,10 +88,10 @@ public class BlockReflectionChamber extends BlockModContainer implements ILightS
 
 	@Override
 	public boolean handleBeam(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull Beam beam) {
-		//if(beam.isAesthetic()) return true;
-		//TileEntity te = world.getTileEntity(pos);
-		//if (te != null)
-		//	((TileReflectionChamber) te).handleBeam(beam);
+		TileReflectionChamber te = getTE(world, pos);
+		if (te == null) return false;
+
+		te.handleBeam(beam);
 		return true;
 	}
 

@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -40,7 +41,7 @@ public class Beam {
 
 	public final double range;
 
-	public int bounceLimit = 10;
+	public int bounceLimit = 20;
 
 	private int bouncedTimes;
 
@@ -198,5 +199,18 @@ public class Beam {
 		PacketHandler.NETWORK.sendToAll(new PacketAddBeam(origin, result.hitVec, red, green, blue, uuid));
 
 		return true;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Beam beam = (Beam) o;
+		return Objects.equals(uuid, beam.uuid);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(uuid);
 	}
 }

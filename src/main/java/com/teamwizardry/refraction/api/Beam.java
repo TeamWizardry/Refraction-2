@@ -36,7 +36,7 @@ public class Beam {
 	public int red, green, blue;
 	@Save
 	@NotNull
-	public final Set<UUID> entitySkipList = new HashSet<>();
+	public Set<UUID> entitySkipList = new HashSet<>();
 	@Save
 	@NotNull
 	public UUID uuid;
@@ -53,14 +53,7 @@ public class Beam {
 	public Vec3d endLoc;
 
 	public Beam(@NotNull World world, @NotNull Vec3d origin, @NotNull Vec3d slope, double range, @NotNull Color color, @NotNull UUID uuid) {
-		this.world = world;
-		this.origin = origin;
-		this.slope = slope;
-		this.range = range;
-		this.red = color.getRed();
-		this.green = color.getRed();
-		this.blue = color.getBlue();
-		this.uuid = uuid;
+		this(world, origin, slope, range, color.getRed(), color.getGreen(), color.getBlue(), uuid);
 	}
 
 	public Beam(@NotNull World world, @NotNull Vec3d origin, @NotNull Vec3d slope, double range, int red, int green, int blue, @NotNull UUID uuid) {
@@ -84,8 +77,18 @@ public class Beam {
 		return this;
 	}
 
+	public Beam setEntityskipList(@NotNull Set<UUID> entitySkipList) {
+		this.entitySkipList = entitySkipList;
+		return this;
+	}
+
 	public Beam setBounceLimit(int bounceLimit) {
 		this.bounceLimit = bounceLimit;
+		return this;
+	}
+
+	public Beam setBouncedTimes(int bouncedTimes) {
+		this.bouncedTimes = bouncedTimes;
 		return this;
 	}
 
@@ -149,7 +152,9 @@ public class Beam {
 	 */
 	public Beam createSimilarBeam(Vec3d init, Vec3d slope, Color color, UUID uuid) {
 		return new Beam(world, init, slope, range, color, uuid)
-				.setBounceLimit(bounceLimit - bouncedTimes);
+				.setEntityskipList(entitySkipList)
+				.setBounceLimit(bounceLimit)
+				.setBouncedTimes(bouncedTimes);
 	}
 
 	/**
@@ -161,12 +166,14 @@ public class Beam {
 	 */
 	public Beam createSimilarBeam(Vec3d init, Vec3d slope, int red, int green, int blue, UUID uuid) {
 		return new Beam(world, init, slope, range, red, green, blue, uuid)
-				.setBounceLimit(bounceLimit - bouncedTimes);
+				.setEntityskipList(entitySkipList)
+				.setBounceLimit(bounceLimit)
+				.setBouncedTimes(bouncedTimes);
 	}
 
 	public boolean spawn() {
 		if (world.isRemote) return false;
-		if (--bouncedTimes > bounceLimit) return false;
+		if (++bouncedTimes > bounceLimit) return false;
 
 		RayTraceResult result = new RayTrace(world, slope, origin, range)
 				.setIgnoreBlocksWithoutBoundingBoxes(false)

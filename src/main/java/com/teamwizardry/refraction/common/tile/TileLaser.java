@@ -1,31 +1,20 @@
 package com.teamwizardry.refraction.common.tile;
 
 import com.teamwizardry.librarianlib.features.autoregister.TileRegister;
-import com.teamwizardry.librarianlib.features.base.block.tile.TileModTickable;
-import com.teamwizardry.librarianlib.features.saving.Save;
 import com.teamwizardry.refraction.api.Beam;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ITickable;
 import net.minecraft.util.math.Vec3d;
 
 import java.awt.*;
-import java.util.UUID;
 
 @TileRegister("laser")
-public class TileLaser extends TileModTickable {
-
-	@Save
-	private UUID uuid;
+public class TileLaser extends ModTile implements ITickable {
 
 	@Override
-	public void onLoad() {
-		uuid = UUID.nameUUIDFromBytes((pos.toLong() + "").getBytes());
-	}
-
-	@Override
-	public void tick() {
-
+	public void update() {
 		IBlockState state = world.getBlockState(pos);
 		EnumFacing facing = state.getValue(BlockDirectional.FACING);
 

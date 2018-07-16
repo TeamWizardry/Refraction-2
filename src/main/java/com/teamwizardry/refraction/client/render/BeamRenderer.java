@@ -1,24 +1,16 @@
 package com.teamwizardry.refraction.client.render;
 
-import com.teamwizardry.librarianlib.core.client.ClientTickHandler;
 import com.teamwizardry.librarianlib.features.forgeevents.CustomWorldRenderEvent;
 import com.teamwizardry.librarianlib.features.network.PacketHandler;
-import com.teamwizardry.librarianlib.features.sprite.Sprite;
 import com.teamwizardry.refraction.Refraction;
-import com.teamwizardry.refraction.api.utils.Utils;
 import com.teamwizardry.refraction.common.network.PacketUpdateBeamRender;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraftforge.client.event.RenderWorldLastEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -27,14 +19,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
-import java.util.function.Predicate;
 
 import static org.lwjgl.opengl.GL11.GL_ONE;
-import static org.lwjgl.opengl.GL11.GL_SMOOTH;
 import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
 
 /**
@@ -71,7 +60,7 @@ public class BeamRenderer {
 			long currentTick = Minecraft.getMinecraft().world.getTotalWorldTime();
 			long lastTick = beamRenderInfo.lastTime;
 
-			return (currentTick - lastTick) > 1;
+			return (currentTick - lastTick) > 2;
 		});
 	}
 

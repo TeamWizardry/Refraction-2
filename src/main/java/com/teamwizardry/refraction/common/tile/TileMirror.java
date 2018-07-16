@@ -20,7 +20,7 @@ public class TileMirror extends TileMirrorBase {
 		Vec3d outgoingDir = incomingDir.subtract(normal.scale(incomingDir.dotProduct(normal) * 2));
 
 		//TODO setPotency((int) (beam.getAlpha() / 1.05))).
-		beam.createSimilarBeam(beam.endLoc, outgoingDir).spawn();
+		beam.createSimilarBeam(beam.endLoc, outgoingDir).setUUID(uuid).spawn();
 	}
 
 	@SideOnly(Side.CLIENT)

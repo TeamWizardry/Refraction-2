@@ -1,9 +1,20 @@
 package com.teamwizardry.refraction.api.utils;
 
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
+import java.util.UUID;
+
 public class Utils {
+
+	public static UUID createUUID(BlockPos pos) {
+		return createUUID(pos.toLong() + "");
+	}
+
+	public static UUID createUUID(String hash) {
+		return UUID.nameUUIDFromBytes(hash.getBytes());
+	}
 
 	public static float signAngle(Vec3d a, Vec3d b, Vec3d n) {
 		Vec3d cross = a.crossProduct(b);

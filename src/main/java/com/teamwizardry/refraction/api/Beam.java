@@ -1,7 +1,6 @@
 package com.teamwizardry.refraction.api;
 
 import com.teamwizardry.librarianlib.features.network.PacketHandler;
-import com.teamwizardry.librarianlib.features.saving.Save;
 import com.teamwizardry.refraction.api.utils.RayTrace;
 import com.teamwizardry.refraction.common.network.PacketAddBeam;
 import net.minecraft.block.state.IBlockState;
@@ -22,33 +21,31 @@ import java.util.UUID;
  */
 public class Beam {
 
-	@Save
 	@NotNull
 	public final World world;
-	@Save
+
 	@NotNull
 	public final Vec3d origin;
-	@Save
+
 	@NotNull
 	public final Vec3d slope;
-	@Save
-	@NotNull
+
 	public int red, green, blue;
-	@Save
+
 	@NotNull
 	public Set<UUID> entitySkipList = new HashSet<>();
-	@Save
+
 	@NotNull
 	public UUID uuid;
-	@Save
+
 	public final double range;
-	@Save
+
 	public int bounceLimit = 10;
-	@Save
+
 	private int bouncedTimes;
-	@Save
+
 	public final boolean ignoreEntities = false;
-	@Save
+
 	@Nullable
 	public Vec3d endLoc;
 

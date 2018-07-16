@@ -4,7 +4,6 @@ import com.teamwizardry.librarianlib.core.LibrarianLib;
 import com.teamwizardry.librarianlib.features.autoregister.PacketRegister;
 import com.teamwizardry.librarianlib.features.network.PacketBase;
 import com.teamwizardry.librarianlib.features.saving.Save;
-import com.teamwizardry.refraction.client.render.BeamRenderInfo;
 import com.teamwizardry.refraction.client.render.BeamRenderer;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -26,7 +25,7 @@ public class PacketAddBeam extends PacketBase {
 	@Save
 	private Vec3d target;
 	@Save
-	private Color color;
+	private int red, green, blue;
 	@Save
 	private UUID uuid;
 
@@ -36,7 +35,18 @@ public class PacketAddBeam extends PacketBase {
 	public PacketAddBeam(Vec3d origin, Vec3d target, Color color, UUID uuid) {
 		this.origin = origin;
 		this.target = target;
-		this.color = color;
+		this.red = color.getRed();
+		this.green = color.getGreen();
+		this.blue = color.getBlue();
+		this.uuid = uuid;
+	}
+
+	public PacketAddBeam(Vec3d origin, Vec3d target, int red, int green, int blue, UUID uuid) {
+		this.origin = origin;
+		this.target = target;
+		this.red = red;
+		this.green = green;
+		this.blue = blue;
 		this.uuid = uuid;
 	}
 
@@ -47,6 +57,6 @@ public class PacketAddBeam extends PacketBase {
 		World world = LibrarianLib.PROXY.getClientPlayer().world;
 		if (world == null) return;
 
-		BeamRenderer.addBeam(world, origin, target, color, uuid);
+		BeamRenderer.addBeam(world, origin, target, red, green, blue, uuid);
 	}
 }

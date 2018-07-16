@@ -1,24 +1,17 @@
 package com.teamwizardry.refraction.client.render;
 
-import com.teamwizardry.librarianlib.core.client.ClientTickHandler;
 import com.teamwizardry.librarianlib.features.forgeevents.CustomWorldRenderEvent;
 import com.teamwizardry.librarianlib.features.network.PacketHandler;
-import com.teamwizardry.librarianlib.features.sprite.Sprite;
 import com.teamwizardry.refraction.Refraction;
-import com.teamwizardry.refraction.api.utils.Utils;
 import com.teamwizardry.refraction.common.network.PacketUpdateBeamRender;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraftforge.client.event.RenderWorldLastEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -27,14 +20,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
-import java.util.function.Predicate;
 
 import static org.lwjgl.opengl.GL11.GL_ONE;
-import static org.lwjgl.opengl.GL11.GL_SMOOTH;
 import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
 
 /**
@@ -51,17 +41,19 @@ public class BeamRenderer {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static void addBeam(World world, Vec3d origin, Vec3d target, Color color, UUID uuid) {
+	public static void addBeam(World world, Vec3d origin, Vec3d target, int red, int green, int blue, UUID uuid) {
 		for (BeamRenderInfo info : beams) {
 			if (info.uuid.equals(uuid)) {
 				info.lastTime = world.getTotalWorldTime();
-				info.color = color;
+				info.red = red;
+				info.green = green;
+				info.blue = blue;
 				info.origin = origin;
 				info.target = target;
 				return;
 			}
 		}
-		beams.add(new BeamRenderInfo(world, origin, target, color, uuid));
+		beams.add(new BeamRenderInfo(world, origin, target, red, green, blue, uuid));
 	}
 
 	public static void update() {
@@ -71,7 +63,7 @@ public class BeamRenderer {
 			long currentTick = Minecraft.getMinecraft().world.getTotalWorldTime();
 			long lastTick = beamRenderInfo.lastTime;
 
-			return (currentTick - lastTick) > 1;
+			return (currentTick - lastTick) > 2;
 		});
 	}
 
@@ -114,7 +106,12 @@ public class BeamRenderer {
 		beams.forEach(beamRenderInfo -> {
 			GlStateManager.pushMatrix();
 
-			Color color = beamRenderInfo.color;
+			// TODO: FIX COLOR OVERFLOW
+			Color color = new Color(
+					MathHelper.clamp(beamRenderInfo.red, 0, 255),
+					MathHelper.clamp(beamRenderInfo.green, 0, 255),
+					MathHelper.clamp(beamRenderInfo.blue, 0, 255));
+
 			Vec3d start = beamRenderInfo.origin;
 			Vec3d end = beamRenderInfo.target;
 			Vec3d diff = end.subtract(start);
@@ -147,6 +144,16 @@ public class BeamRenderer {
 			vb.pos(diff.x, diff.y, diff.z - radius).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
 			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
 
+			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+			vb.pos(radius, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x + radius, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
+			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+			vb.pos(-radius, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x - radius, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
 			color = new Color(1f, 1f, 1f, 1f);
 			radius = radius / 4.0;
 
@@ -168,6 +175,16 @@ public class BeamRenderer {
 			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
 			vb.pos(0, 0, -radius).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
 			vb.pos(diff.x, diff.y, diff.z - radius).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
+			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+			vb.pos(radius, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x + radius, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
+			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+			vb.pos(-radius, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x - radius, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
 			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
 
 			tessellator.draw();

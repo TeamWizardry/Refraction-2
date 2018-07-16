@@ -1,9 +1,9 @@
 package com.teamwizardry.refraction.common.tile;
 
-import com.teamwizardry.librarianlib.features.base.block.tile.TileModTickable;
 import com.teamwizardry.librarianlib.features.math.Matrix4;
 import com.teamwizardry.librarianlib.features.saving.Save;
 import com.teamwizardry.refraction.api.Beam;
+import net.minecraft.util.ITickable;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
-public abstract class TileMirrorBase extends TileModTickable {
+public abstract class TileMirrorBase extends ModTile implements ITickable {
 
 	@Save
 	public float rotXUnpowered, rotYUnpowered, rotXPowered = Float.NaN, rotYPowered = Float.NaN;
@@ -70,12 +70,14 @@ public abstract class TileMirrorBase extends TileModTickable {
 			y = rotYUnpowered;
 		}
 
+		if (beam.endLoc == null) return;
+
 		Matrix4 matrix = new Matrix4();
 		matrix.rotate(Math.toRadians(y), new Vec3d(0, 1, 0));
 		matrix.rotate(Math.toRadians(x), new Vec3d(1, 0, 0));
 
 		Vec3d normal = matrix.apply(new Vec3d(0, 1, 0));
-		Vec3d incomingDir = new Vec3d(pos.getX(), pos.getY(), pos.getZ()).subtract(beam.origin).normalize();
+		Vec3d incomingDir = beam.slope;
 
 		handleBeam(beam, incomingDir, normal);
 	}
@@ -87,7 +89,7 @@ public abstract class TileMirrorBase extends TileModTickable {
 	public abstract ResourceLocation getMirrorHeadLocation();
 
 	@Override
-	public void tick() {
+	public void update() {
 		double transitionTimeMaxX = Math.max(3, Math.min(Math.abs((rotPrevX - rotDestX) / 2.0), 10)),
 				transitionTimeMaxY = Math.max(3, Math.min(Math.abs((rotPrevY - rotDestY) / 2.0), 10));
 		double worldTimeTransition = (world.getTotalWorldTime() - worldTime);

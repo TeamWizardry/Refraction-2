@@ -1,13 +1,10 @@
 package com.teamwizardry.refraction.client.render;
 
-import com.teamwizardry.refraction.api.Beam;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.lwjgl.opencl.CL;
 
-import java.awt.*;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -19,14 +16,16 @@ public class BeamRenderInfo {
 
 	public Vec3d origin;
 	public Vec3d target;
-	public Color color;
+	public int red, green, blue;
 	public long lastTime;
 	public UUID uuid;
 
-	public BeamRenderInfo(World world, Vec3d origin, Vec3d target, Color color, UUID uuid) {
+	public BeamRenderInfo(World world, Vec3d origin, Vec3d target, int red, int green, int blue, UUID uuid) {
 		this.origin = origin;
 		this.target = target;
-		this.color = color;
+		this.red = red;
+		this.green = green;
+		this.blue = blue;
 		this.lastTime = world.getTotalWorldTime();
 		this.uuid = uuid;
 	}

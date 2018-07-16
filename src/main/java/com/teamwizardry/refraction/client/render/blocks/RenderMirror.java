@@ -1,4 +1,4 @@
-package com.teamwizardry.refraction.client.render;
+package com.teamwizardry.refraction.client.render.blocks;
 
 import com.teamwizardry.refraction.ClientProxy;
 import com.teamwizardry.refraction.Refraction;

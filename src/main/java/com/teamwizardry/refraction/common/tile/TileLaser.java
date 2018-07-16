@@ -18,8 +18,7 @@ public class TileLaser extends ModTile implements ITickable {
 		IBlockState state = world.getBlockState(pos);
 		EnumFacing facing = state.getValue(BlockDirectional.FACING);
 
-		new Beam(world, new Vec3d(getPos()).addVector(0.5, 0.5, 0.5), new Vec3d(facing.getDirectionVec()), 25, Color.RED)
-				.setUUID(uuid)
+		new Beam(world, new Vec3d(getPos()).addVector(0.5, 0.5, 0.5), new Vec3d(facing.getDirectionVec()), 25, Color.RED, getUUID(0))
 				.spawn();
 	}
 }

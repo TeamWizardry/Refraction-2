@@ -21,8 +21,8 @@ public class TileSplitter extends TileMirrorBase {
 		Vec3d outgoingDir = incomingDir.subtract(normal.scale(incomingDir.dotProduct(normal) * 2));
 
 		//TODO .setPotency(beam.getColor().getAlpha() / 2)
-		beam.createSimilarBeam(beam.endLoc, outgoingDir).setUUID(uuid).spawn();
-		beam.createSimilarBeam(beam.endLoc, incomingDir).setUUID(uuid).spawn();
+		beam.createSimilarBeam(beam.endLoc, outgoingDir, getUUID(0)).spawn();
+		beam.createSimilarBeam(beam.endLoc, incomingDir, getUUID(1)).spawn();
 	}
 
 	@SideOnly(Side.CLIENT)

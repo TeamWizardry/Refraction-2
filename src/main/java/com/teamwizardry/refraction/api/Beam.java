@@ -39,7 +39,7 @@ public class Beam {
 	public final Set<UUID> entitySkipList = new HashSet<>();
 	@Save
 	@NotNull
-	public UUID uuid = UUID.randomUUID();
+	public UUID uuid;
 	@Save
 	public final double range;
 	@Save
@@ -52,12 +52,13 @@ public class Beam {
 	@Nullable
 	public Vec3d endLoc;
 
-	public Beam(@NotNull World world, @NotNull Vec3d origin, @NotNull Vec3d slope, double range, @NotNull Color color) {
+	public Beam(@NotNull World world, @NotNull Vec3d origin, @NotNull Vec3d slope, double range, @NotNull Color color, UUID uuid) {
 		this.world = world;
 		this.origin = origin;
 		this.slope = slope;
 		this.range = range;
 		this.color = color;
+		this.uuid = uuid;
 	}
 
 	public Beam setUUID(UUID uuid) {
@@ -80,8 +81,8 @@ public class Beam {
 	 *
 	 * @return The new beam created. Can be modified as needed.
 	 */
-	public Beam createSimilarBeam() {
-		return createSimilarBeam(origin);
+	public Beam createSimilarBeam(UUID uuid) {
+		return createSimilarBeam(origin, uuid);
 	}
 
 	/**
@@ -89,8 +90,8 @@ public class Beam {
 	 *
 	 * @return The new beam created. Can be modified as needed.
 	 */
-	public Beam createSimilarBeam(Color color) {
-		return createSimilarBeam(origin, slope, color);
+	public Beam createSimilarBeam(Color color, UUID uuid) {
+		return createSimilarBeam(origin, slope, color, uuid);
 	}
 
 	/**
@@ -101,8 +102,8 @@ public class Beam {
 	 * @param slope The slope or destination or final location the beam will point to.
 	 * @return The new beam created. Can be modified as needed.
 	 */
-	public Beam createSimilarBeam(Vec3d slope) {
-		return createSimilarBeam(origin, slope);
+	public Beam createSimilarBeam(Vec3d slope, UUID uuid) {
+		return createSimilarBeam(origin, slope, uuid);
 	}
 
 
@@ -113,8 +114,8 @@ public class Beam {
 	 * @param slope The direction or slope or final destination or location the beam will point to.
 	 * @return The new beam created. Can be modified as needed.
 	 */
-	public Beam createSimilarBeam(Vec3d init, Vec3d slope) {
-		return createSimilarBeam(init, slope, color);
+	public Beam createSimilarBeam(Vec3d init, Vec3d slope, UUID uuid) {
+		return createSimilarBeam(init, slope, color, uuid);
 	}
 
 	/**
@@ -124,8 +125,8 @@ public class Beam {
 	 * @param slope The direction or slope or final destination or location the beam will point to.
 	 * @return The new beam created. Can be modified as needed.
 	 */
-	public Beam createSimilarBeam(Vec3d init, Vec3d slope, Color color) {
-		return new Beam(world, init, slope, range, color)
+	public Beam createSimilarBeam(Vec3d init, Vec3d slope, Color color, UUID uuid) {
+		return new Beam(world, init, slope, range, color, uuid)
 				.setBounceLimit(bounceLimit - bouncedTimes);
 	}
 

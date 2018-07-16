@@ -3,6 +3,7 @@ package com.teamwizardry.refraction.common.tile;
 import com.teamwizardry.librarianlib.features.autoregister.TileRegister;
 import com.teamwizardry.refraction.Refraction;
 import com.teamwizardry.refraction.api.Beam;
+import com.teamwizardry.refraction.api.utils.Utils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.relauncher.Side;
@@ -20,7 +21,7 @@ public class TileMirror extends TileMirrorBase {
 		Vec3d outgoingDir = incomingDir.subtract(normal.scale(incomingDir.dotProduct(normal) * 2));
 
 		//TODO setPotency((int) (beam.getAlpha() / 1.05))).
-		beam.createSimilarBeam(beam.endLoc, outgoingDir, getUUID(beam, 0)).spawn();
+		beam.createSimilarBeam(beam.endLoc, outgoingDir, Utils.createUUID(pos, beam)).spawn();
 	}
 
 	@SideOnly(Side.CLIENT)

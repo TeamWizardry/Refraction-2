@@ -1,5 +1,6 @@
 package com.teamwizardry.refraction.api.utils;
 
+import com.teamwizardry.refraction.api.Beam;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -14,6 +15,18 @@ public class Utils {
 
 	public static UUID createUUID(String hash) {
 		return UUID.nameUUIDFromBytes(hash.getBytes());
+	}
+
+	public static UUID createUUID(BlockPos pos, Beam beam, int index) {
+		return Utils.createUUID(pos.toLong() + "-" + beam.uuid.hashCode() + "-" + index);
+	}
+
+	public static UUID createUUID(BlockPos pos, Beam beam) {
+		return Utils.createUUID(pos.toLong() + "-" + beam.uuid.hashCode());
+	}
+
+	public static UUID createUUID(BlockPos pos, int index) {
+		return Utils.createUUID(pos.toLong() + "-" + index);
 	}
 
 	public static float signAngle(Vec3d a, Vec3d b, Vec3d n) {

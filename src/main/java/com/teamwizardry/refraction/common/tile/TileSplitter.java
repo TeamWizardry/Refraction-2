@@ -3,6 +3,7 @@ package com.teamwizardry.refraction.common.tile;
 import com.teamwizardry.librarianlib.features.autoregister.TileRegister;
 import com.teamwizardry.refraction.Refraction;
 import com.teamwizardry.refraction.api.Beam;
+import com.teamwizardry.refraction.api.utils.Utils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.relauncher.Side;
@@ -21,8 +22,8 @@ public class TileSplitter extends TileMirrorBase {
 		Vec3d outgoingDir = incomingDir.subtract(normal.scale(incomingDir.dotProduct(normal) * 2));
 
 		//TODO .setPotency(beam.getColor().getAlpha() / 2)
-		beam.createSimilarBeam(beam.endLoc, outgoingDir, getUUID(beam, 0)).spawn();
-		beam.createSimilarBeam(beam.endLoc, incomingDir, getUUID(beam, 1)).spawn();
+		beam.createSimilarBeam(beam.endLoc, outgoingDir, Utils.createUUID(pos, beam, 0)).spawn();
+		beam.createSimilarBeam(beam.endLoc, incomingDir, Utils.createUUID(pos, beam, 1)).spawn();
 	}
 
 	@SideOnly(Side.CLIENT)

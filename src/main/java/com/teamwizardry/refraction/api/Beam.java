@@ -33,7 +33,7 @@ public class Beam {
 	public final Vec3d slope;
 	@Save
 	@NotNull
-	public final Color color;
+	public int red, green, blue;
 	@Save
 	@NotNull
 	public final Set<UUID> entitySkipList = new HashSet<>();
@@ -52,12 +52,25 @@ public class Beam {
 	@Nullable
 	public Vec3d endLoc;
 
-	public Beam(@NotNull World world, @NotNull Vec3d origin, @NotNull Vec3d slope, double range, @NotNull Color color, UUID uuid) {
+	public Beam(@NotNull World world, @NotNull Vec3d origin, @NotNull Vec3d slope, double range, @NotNull Color color, @NotNull UUID uuid) {
 		this.world = world;
 		this.origin = origin;
 		this.slope = slope;
 		this.range = range;
-		this.color = color;
+		this.red = color.getRed();
+		this.green = color.getRed();
+		this.blue = color.getBlue();
+		this.uuid = uuid;
+	}
+
+	public Beam(@NotNull World world, @NotNull Vec3d origin, @NotNull Vec3d slope, double range, int red, int green, int blue, @NotNull UUID uuid) {
+		this.world = world;
+		this.origin = origin;
+		this.slope = slope;
+		this.range = range;
+		this.red = red;
+		this.green = green;
+		this.blue = blue;
 		this.uuid = uuid;
 	}
 
@@ -95,6 +108,15 @@ public class Beam {
 	}
 
 	/**
+	 * Will create a beam that's exactly like the one passed except in color.
+	 *
+	 * @return The new beam created. Can be modified as needed.
+	 */
+	public Beam createSimilarBeam(int red, int green, int blue, UUID uuid) {
+		return createSimilarBeam(origin, slope, red, green, blue, uuid);
+	}
+
+	/**
 	 * Will create a similar beam that starts from the position this beam ended at
 	 * and will set it's slope to the one specified. So it's a new beam from the position
 	 * you last hit to the new one you specify.
@@ -115,7 +137,7 @@ public class Beam {
 	 * @return The new beam created. Can be modified as needed.
 	 */
 	public Beam createSimilarBeam(Vec3d init, Vec3d slope, UUID uuid) {
-		return createSimilarBeam(init, slope, color, uuid);
+		return createSimilarBeam(init, slope, red, green, blue, uuid);
 	}
 
 	/**
@@ -127,6 +149,18 @@ public class Beam {
 	 */
 	public Beam createSimilarBeam(Vec3d init, Vec3d slope, Color color, UUID uuid) {
 		return new Beam(world, init, slope, range, color, uuid)
+				.setBounceLimit(bounceLimit - bouncedTimes);
+	}
+
+	/**
+	 * Will create a similar beam that starts and ends in the positions you specify, with a custom color.
+	 *
+	 * @param init  The initial location or origin to spawn the beam from.
+	 * @param slope The direction or slope or final destination or location the beam will point to.
+	 * @return The new beam created. Can be modified as needed.
+	 */
+	public Beam createSimilarBeam(Vec3d init, Vec3d slope, int red, int green, int blue, UUID uuid) {
+		return new Beam(world, init, slope, range, red, green, blue, uuid)
 				.setBounceLimit(bounceLimit - bouncedTimes);
 	}
 
@@ -157,7 +191,7 @@ public class Beam {
 			}
 		}
 
-		PacketHandler.NETWORK.sendToAll(new PacketAddBeam(origin, result.hitVec, color, uuid));
+		PacketHandler.NETWORK.sendToAll(new PacketAddBeam(origin, result.hitVec, red, green, blue, uuid));
 
 		return true;
 	}

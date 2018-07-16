@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Mod;
@@ -40,17 +41,19 @@ public class BeamRenderer {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static void addBeam(World world, Vec3d origin, Vec3d target, Color color, UUID uuid) {
+	public static void addBeam(World world, Vec3d origin, Vec3d target, int red, int green, int blue, UUID uuid) {
 		for (BeamRenderInfo info : beams) {
 			if (info.uuid.equals(uuid)) {
 				info.lastTime = world.getTotalWorldTime();
-				info.color = color;
+				info.red = red;
+				info.green = green;
+				info.blue = blue;
 				info.origin = origin;
 				info.target = target;
 				return;
 			}
 		}
-		beams.add(new BeamRenderInfo(world, origin, target, color, uuid));
+		beams.add(new BeamRenderInfo(world, origin, target, red, green, blue, uuid));
 	}
 
 	public static void update() {
@@ -103,7 +106,12 @@ public class BeamRenderer {
 		beams.forEach(beamRenderInfo -> {
 			GlStateManager.pushMatrix();
 
-			Color color = beamRenderInfo.color;
+			// TODO: FIX COLOR OVERFLOW
+			Color color = new Color(
+					MathHelper.clamp(beamRenderInfo.red, 0, 255),
+					MathHelper.clamp(beamRenderInfo.green, 0, 255),
+					MathHelper.clamp(beamRenderInfo.blue, 0, 255));
+
 			Vec3d start = beamRenderInfo.origin;
 			Vec3d end = beamRenderInfo.target;
 			Vec3d diff = end.subtract(start);

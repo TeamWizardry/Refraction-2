@@ -147,6 +147,16 @@ public class BeamRenderer {
 			vb.pos(diff.x, diff.y, diff.z - radius).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
 			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
 
+			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+			vb.pos(radius, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x + radius, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
+			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+			vb.pos(-radius, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x - radius, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
 			color = new Color(1f, 1f, 1f, 1f);
 			radius = radius / 4.0;
 
@@ -168,6 +178,16 @@ public class BeamRenderer {
 			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
 			vb.pos(0, 0, -radius).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
 			vb.pos(diff.x, diff.y, diff.z - radius).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
+			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+			vb.pos(radius, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x + radius, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+
+			vb.pos(0, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
+			vb.pos(-radius, 0, 0).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
+			vb.pos(diff.x - radius, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), 0).endVertex();
 			vb.pos(diff.x, diff.y, diff.z).color(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha()).endVertex();
 
 			tessellator.draw();

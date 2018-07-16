@@ -1,6 +1,6 @@
 package com.teamwizardry.refraction.common.block;
 
-import com.teamwizardry.refraction.client.render.RenderMirror;
+import com.teamwizardry.refraction.client.render.blocks.RenderMirror;
 import com.teamwizardry.refraction.common.tile.TileSplitter;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

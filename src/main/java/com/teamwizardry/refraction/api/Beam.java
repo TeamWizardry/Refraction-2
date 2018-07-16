@@ -1,12 +1,10 @@
 package com.teamwizardry.refraction.api;
 
-import com.google.common.base.Predicate;
 import com.teamwizardry.librarianlib.features.network.PacketHandler;
-import com.teamwizardry.librarianlib.features.saving.Savable;
 import com.teamwizardry.librarianlib.features.saving.Save;
 import com.teamwizardry.refraction.api.utils.RayTrace;
 import com.teamwizardry.refraction.common.network.PacketAddBeam;
-import net.minecraft.entity.Entity;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
@@ -50,6 +48,9 @@ public class Beam {
 	private int bouncedTimes;
 	@Save
 	public final boolean ignoreEntities = false;
+	@Save
+	@Nullable
+	public Vec3d endLoc;
 
 	public Beam(@NotNull World world, @NotNull Vec3d origin, @NotNull Vec3d slope, double range, @NotNull Color color) {
 		this.world = world;
@@ -119,8 +120,8 @@ public class Beam {
 	/**
 	 * Will create a similar beam that starts and ends in the positions you specify, with a custom color.
 	 *
-	 * @param init The initial location or origin to spawn the beam from.
-	 * @param dir  The direction or slope or final destination or location the beam will point to.
+	 * @param init  The initial location or origin to spawn the beam from.
+	 * @param slope The direction or slope or final destination or location the beam will point to.
 	 * @return The new beam created. Can be modified as needed.
 	 */
 	public Beam createSimilarBeam(Vec3d init, Vec3d slope, Color color) {
@@ -144,6 +145,16 @@ public class Beam {
 
 		if (result.hitVec == null) return false;
 		if (result.hitVec.distanceTo(origin) < 0.2) return false;
+
+		endLoc = result.hitVec;
+
+		if (result.typeOfHit == RayTraceResult.Type.BLOCK) {
+			BlockPos pos = result.getBlockPos();
+			IBlockState state = world.getBlockState(pos);
+			if (state.getBlock() instanceof ILightSink) {
+				((ILightSink) state.getBlock()).handleBeam(world, pos, this);
+			}
+		}
 
 		PacketHandler.NETWORK.sendToAll(new PacketAddBeam(origin, result.hitVec, color, uuid));
 

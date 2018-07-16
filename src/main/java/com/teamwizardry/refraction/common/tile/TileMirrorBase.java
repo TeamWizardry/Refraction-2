@@ -70,12 +70,14 @@ public abstract class TileMirrorBase extends TileModTickable {
 			y = rotYUnpowered;
 		}
 
+		if (beam.endLoc == null) return;
+
 		Matrix4 matrix = new Matrix4();
 		matrix.rotate(Math.toRadians(y), new Vec3d(0, 1, 0));
 		matrix.rotate(Math.toRadians(x), new Vec3d(1, 0, 0));
 
 		Vec3d normal = matrix.apply(new Vec3d(0, 1, 0));
-		Vec3d incomingDir = new Vec3d(pos.getX(), pos.getY(), pos.getZ()).subtract(beam.origin).normalize();
+		Vec3d incomingDir = beam.slope;
 
 		handleBeam(beam, incomingDir, normal);
 	}

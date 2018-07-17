@@ -73,9 +73,9 @@ public class BlockPrism extends BlockMod implements IBlockCollisionRayTrace, ILi
 
 	@Override
 	public boolean handleBeam(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull Beam beam) {
-		beam.createSimilarBeam(beam.endLoc, beam.slope.rotateYaw(0.5f), Color.RED, Utils.createUUID(pos, beam, 0)).spawn();
-		beam.createSimilarBeam(beam.endLoc, beam.slope, Color.GREEN, Utils.createUUID(pos, beam, 1)).spawn();
-		beam.createSimilarBeam(beam.endLoc, beam.slope.rotateYaw(-0.5f), Color.BLUE, Utils.createUUID(pos, beam, 2)).spawn();
+		beam.createSimilarBeam(beam.endLoc, beam.slope.rotateYaw(0.5f), Color.RED, Utils.createUUID(pos, beam, 0)).spawn(world);
+		beam.createSimilarBeam(beam.endLoc, beam.slope, Color.GREEN, Utils.createUUID(pos, beam, 1)).spawn(world);
+		beam.createSimilarBeam(beam.endLoc, beam.slope.rotateYaw(-0.5f), Color.BLUE, Utils.createUUID(pos, beam, 2)).spawn(world);
 		return true;
 	}
 

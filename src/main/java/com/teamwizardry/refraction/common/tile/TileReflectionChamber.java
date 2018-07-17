@@ -55,9 +55,9 @@ public class TileReflectionChamber extends MultiBeamTile {
 			green = Math.min(green / beams.size(), 255);
 			blue = Math.min(blue / beams.size(), 255);
 
-			Beam beam = new Beam(world, new Vec3d(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5), outputDir, 255, red, green, blue, Utils.createUUID(pos))
+			Beam beam = new Beam(new Vec3d(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5), outputDir, 255, red, green, blue, Utils.createUUID(pos))
 					.addTag("potential_recursion");
-			beam.spawn();
+			beam.spawn(world);
 		};
 	}
 }

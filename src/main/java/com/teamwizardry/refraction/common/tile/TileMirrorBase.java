@@ -63,20 +63,20 @@ public abstract class TileMirrorBase extends TileModTickable implements ITileLig
 
 	@Override
 	public boolean handleBeam(@NotNull Beam beam) {
-		float x, y;
+		float rotX, rotY;
 		if (powered) {
-			x = rotXPowered;
-			y = rotYPowered;
+			rotX = rotXPowered;
+			rotY = rotYPowered;
 		} else {
-			x = rotXUnpowered;
-			y = rotYUnpowered;
+			rotX = rotXUnpowered;
+			rotY = rotYUnpowered;
 		}
 
 		if (beam.endLoc == null) return false;
 
 		Matrix4 matrix = new Matrix4();
-		matrix.rotate(Math.toRadians(y), new Vec3d(0, 1, 0));
-		matrix.rotate(Math.toRadians(x), new Vec3d(1, 0, 0));
+		matrix.rotate(Math.toRadians(rotY), new Vec3d(0, 1, 0));
+		matrix.rotate(Math.toRadians(rotX), new Vec3d(1, 0, 0));
 
 		Vec3d normal = matrix.apply(new Vec3d(0, 1, 0));
 		Vec3d incomingDir = beam.slope;

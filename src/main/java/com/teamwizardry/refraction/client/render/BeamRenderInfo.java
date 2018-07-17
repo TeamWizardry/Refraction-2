@@ -1,33 +1,26 @@
 package com.teamwizardry.refraction.client.render;
 
-import net.minecraft.util.math.Vec3d;
+import com.teamwizardry.refraction.api.Beam;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
 import java.util.Objects;
-import java.util.UUID;
 
 /**
  * Created by Demoniaque.
  */
-@SideOnly(Side.CLIENT)
 public class BeamRenderInfo {
 
-	public Vec3d origin;
-	public Vec3d target;
-	public int red, green, blue;
-	public long lastTime;
-	public UUID uuid;
+	public Beam beam;
 
-	public BeamRenderInfo(World world, Vec3d origin, Vec3d target, int red, int green, int blue, UUID uuid) {
-		this.origin = origin;
-		this.target = target;
-		this.red = red;
-		this.green = green;
-		this.blue = blue;
-		this.lastTime = world.getTotalWorldTime();
-		this.uuid = uuid;
+	@Nullable
+	public BlockPos source;
+	public long lastTime;
+
+	public BeamRenderInfo(World world, Beam beam) {
+		this.beam = beam;
+		lastTime = world.getTotalWorldTime();
 	}
 
 	@Override
@@ -35,11 +28,12 @@ public class BeamRenderInfo {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		BeamRenderInfo that = (BeamRenderInfo) o;
-		return Objects.equals(uuid, that.uuid);
+		return Objects.equals(beam, that.beam);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(uuid);
+
+		return Objects.hash(beam);
 	}
 }

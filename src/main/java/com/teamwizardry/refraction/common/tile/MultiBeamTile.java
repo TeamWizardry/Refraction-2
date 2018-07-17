@@ -3,6 +3,7 @@ package com.teamwizardry.refraction.common.tile;
 import com.teamwizardry.librarianlib.features.base.block.tile.TileModTickable;
 import com.teamwizardry.refraction.api.Beam;
 import com.teamwizardry.refraction.api.ITileLightSink;
+import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 import java.util.HashSet;
@@ -18,11 +19,11 @@ public abstract class MultiBeamTile extends TileModTickable implements ITileLigh
 		if (beam.hasTag("potential_recursion")) return false;
 		for (BeamTimeObject object : beamSet) {
 			if (beam.equals(object.beam)) {
-				object.lastTime = object.beam.world.getTotalWorldTime();
+				object.lastTime = world.getTotalWorldTime();
 				return true;
 			}
 		}
-		beamSet.add(new BeamTimeObject(beam));
+		beamSet.add(new BeamTimeObject(world, beam));
 		return true;
 	}
 
@@ -51,9 +52,9 @@ public abstract class MultiBeamTile extends TileModTickable implements ITileLigh
 		public Beam beam;
 		public long lastTime;
 
-		public BeamTimeObject(Beam beam) {
+		public BeamTimeObject(World world, Beam beam) {
 			this.beam = beam;
-			this.lastTime = beam.world.getTotalWorldTime();
+			this.lastTime = world.getTotalWorldTime();
 		}
 	}
 }

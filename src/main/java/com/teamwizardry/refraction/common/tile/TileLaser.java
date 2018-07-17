@@ -28,7 +28,7 @@ public class TileLaser extends TileModTickable implements IEnergyStorage {
 			IBlockState state = world.getBlockState(pos);
 			EnumFacing facing = state.getValue(BlockDirectional.FACING);
 
-			new Beam(world, new Vec3d(getPos()).addVector(0.5, 0.5, 0.5), new Vec3d(facing.getDirectionVec()), 25, Color.WHITE, Utils.createUUID(pos)).spawn();
+			new Beam(new Vec3d(getPos()).addVector(0.5, 0.5, 0.5), new Vec3d(facing.getDirectionVec()), 25, Color.WHITE, Utils.createUUID(pos)).spawn(world);
 
 			energyStorage.getHandler().extractEnergy(ConfigValues.laserConsume, false);
 		}

@@ -1,7 +1,10 @@
 package com.teamwizardry.refraction.client.render.blocks;
 
+import com.teamwizardry.librarianlib.features.math.Matrix4;
 import com.teamwizardry.refraction.ClientProxy;
 import com.teamwizardry.refraction.Refraction;
+import com.teamwizardry.refraction.api.Beam;
+import com.teamwizardry.refraction.client.render.BeamRenderer;
 import com.teamwizardry.refraction.common.tile.TileMirrorBase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -11,6 +14,8 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.client.model.IModel;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.common.MinecraftForge;
@@ -110,5 +115,28 @@ public class RenderMirror extends TileEntitySpecialRenderer<TileMirrorBase> {
 
 		GlStateManager.disableBlend();
 		GlStateManager.popMatrix();
+
+		if (te.transitionX || te.transitionY) {
+			Matrix4 matrix = new Matrix4();
+			matrix.rotate(Math.toRadians(rotY), new Vec3d(0, 1, 0));
+			matrix.rotate(Math.toRadians(rotX), new Vec3d(1, 0, 0));
+
+			Vec3d normal = matrix.apply(new Vec3d(0, 1, 0));
+
+			BeamRenderer.getBeams(te.getPos().toLong() + "").forEach(beamRenderInfo -> {
+				Beam beam = beamRenderInfo.beam;
+				if (beam.originalSlope == null) return;
+
+				Vec3d incomingDir = beam.originalSlope;
+				if (incomingDir.dotProduct(normal) > 0) return;
+
+				Vec3d outgoingDir = incomingDir.subtract(normal.scale(incomingDir.dotProduct(normal) * 2));
+				beam.slope = outgoingDir;
+				RayTraceResult result = Beam.runRawTrace(te.getWorld(), outgoingDir, beam.origin, beam.range, beam.ignoreEntities, beam.entitySkipList);
+
+				if (result.hitVec == null) return;
+				beam.endLoc = result.hitVec;
+			});
+		}
 	}
 }

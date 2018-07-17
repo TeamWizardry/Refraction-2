@@ -64,7 +64,8 @@ public class BlockReflectionChamber extends BlockModContainer implements ILightS
 	}
 
 	@Override
-	public @Nonnull BlockRenderLayer getBlockLayer() {
+	public @Nonnull
+	BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.SOLID;
 	}
 
@@ -96,10 +97,12 @@ public class BlockReflectionChamber extends BlockModContainer implements ILightS
 	}
 
 	public void handleFiberBeam(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull Beam beam) {
-		Vec3d slope = beam.slope.normalize().scale(0.5);
-		beam.origin.subtract(slope);
-		beam.endLoc.subtract(slope);
-		beam.spawn();
+		if (beam.endLoc != null) {
+			Vec3d slope = beam.slope.normalize().scale(0.5);
+			beam.origin.subtract(slope);
+			beam.endLoc.subtract(slope);
+			beam.spawn(world);
+		}
 	}
 
 	@Override

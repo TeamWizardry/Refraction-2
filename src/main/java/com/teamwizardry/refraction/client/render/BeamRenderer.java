@@ -3,12 +3,14 @@ package com.teamwizardry.refraction.client.render;
 import com.teamwizardry.librarianlib.features.forgeevents.CustomWorldRenderEvent;
 import com.teamwizardry.librarianlib.features.network.PacketHandler;
 import com.teamwizardry.refraction.Refraction;
+import com.teamwizardry.refraction.api.Beam;
 import com.teamwizardry.refraction.common.network.PacketUpdateBeamRender;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -22,7 +24,7 @@ import org.lwjgl.opengl.GL11;
 import java.awt.*;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
+import java.util.stream.Collectors;
 
 import static org.lwjgl.opengl.GL11.GL_ONE;
 import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
@@ -36,19 +38,24 @@ public class BeamRenderer {
 	private static Set<BeamRenderInfo> beams = new HashSet<>();
 
 	@SideOnly(Side.CLIENT)
-	public static void addBeam(World world, Vec3d origin, Vec3d target, int red, int green, int blue, UUID uuid) {
+	public static void addBeam(World world, Beam beam) {
 		for (BeamRenderInfo info : beams) {
-			if (info.uuid.equals(uuid)) {
+			if (info.beam.equals(beam)) {
+				Beam.copyBeamData(beam, info.beam);
 				info.lastTime = world.getTotalWorldTime();
-				info.red = red;
-				info.green = green;
-				info.blue = blue;
-				info.origin = origin;
-				info.target = target;
 				return;
 			}
 		}
-		beams.add(new BeamRenderInfo(world, origin, target, red, green, blue, uuid));
+		BeamRenderInfo info = new BeamRenderInfo(world, beam);
+		info.source = new BlockPos(beam.origin);
+		beams.add(info);
+	}
+
+	public static Set<BeamRenderInfo> getBeams(String tag) {
+		return beams
+				.stream()
+				.filter(beamRenderInfo -> beamRenderInfo.beam.hasTag(tag))
+				.collect(Collectors.toSet());
 	}
 
 	public static void update() {
@@ -103,12 +110,14 @@ public class BeamRenderer {
 
 			// TODO: FIX COLOR OVERFLOW AND DIAMETER
 			Color color = new Color(
-					MathHelper.clamp(beamRenderInfo.red, 0, 255),
-					MathHelper.clamp(beamRenderInfo.green, 0, 255),
-					MathHelper.clamp(beamRenderInfo.blue, 0, 255));
+					MathHelper.clamp(beamRenderInfo.beam.red, 0, 255),
+					MathHelper.clamp(beamRenderInfo.beam.green, 0, 255),
+					MathHelper.clamp(beamRenderInfo.beam.blue, 0, 255));
 
-			Vec3d start = beamRenderInfo.origin;
-			Vec3d end = beamRenderInfo.target;
+			Vec3d start = beamRenderInfo.beam.origin;
+			Vec3d end = beamRenderInfo.beam.endLoc;
+			if (end == null) return;
+
 			Vec3d diff = end.subtract(start);
 			double diameter = 0.15;
 			double radius = diameter / 2.0;

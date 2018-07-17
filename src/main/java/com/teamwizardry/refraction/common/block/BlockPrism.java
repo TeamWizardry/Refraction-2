@@ -7,6 +7,7 @@ import com.teamwizardry.refraction.api.IBlockCollisionRayTrace;
 import com.teamwizardry.refraction.api.ILightSink;
 import com.teamwizardry.refraction.api.utils.Plane;
 import com.teamwizardry.refraction.api.utils.RayTraceResultData;
+import com.teamwizardry.refraction.api.utils.Utils;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -25,6 +26,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.awt.*;
 
 import static net.minecraft.block.BlockDirectional.FACING;
 
@@ -71,8 +73,10 @@ public class BlockPrism extends BlockMod implements IBlockCollisionRayTrace, ILi
 
 	@Override
 	public boolean handleBeam(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull Beam beam) {
-
-		return false;
+		beam.createSimilarBeam(beam.endLoc, beam.slope.rotateYaw(0.5f), Color.RED, Utils.createUUID(pos, beam, 0)).spawn();
+		beam.createSimilarBeam(beam.endLoc, beam.slope, Color.GREEN, Utils.createUUID(pos, beam, 1)).spawn();
+		beam.createSimilarBeam(beam.endLoc, beam.slope.rotateYaw(-0.5f), Color.BLUE, Utils.createUUID(pos, beam, 2)).spawn();
+		return true;
 	}
 
 	@Nullable
@@ -100,10 +104,10 @@ public class BlockPrism extends BlockMod implements IBlockCollisionRayTrace, ILi
 				break;
 		}
 
-		Vec3d peak = new Vec3d(0, 0.5, 0);
-		Vec3d corner1 = new Vec3d(0, 0, -0.5);
-		Vec3d corner2 = new Vec3d(-0.4330125, 0, 0.25);
-		Vec3d corner3 = new Vec3d(0.4330125, 0, 0.25);
+		Vec3d peak = new Vec3d(0.5, 0.77, 0.6);
+		Vec3d corner1 = new Vec3d(0.5, 0, 0.05);
+		Vec3d corner2 = new Vec3d(0.023687, 0, 0.875);
+		Vec3d corner3 = new Vec3d(0.976313, 0, 0.875);
 
 		Plane[] planes = new Plane[]{
 				new Plane(peak, corner1, corner2),

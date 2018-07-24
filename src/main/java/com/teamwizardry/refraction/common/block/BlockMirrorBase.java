@@ -8,6 +8,7 @@ import com.teamwizardry.refraction.api.Beam;
 import com.teamwizardry.refraction.api.IBlockCollisionRayTrace;
 import com.teamwizardry.refraction.api.ILightSink;
 import com.teamwizardry.refraction.api.IPrecision;
+import com.teamwizardry.refraction.client.render.blocks.RenderMirror;
 import com.teamwizardry.refraction.common.item.ItemScrewDriver;
 import com.teamwizardry.refraction.common.tile.TileMirrorBase;
 import net.minecraft.block.material.Material;
@@ -24,6 +25,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
@@ -40,8 +42,14 @@ public abstract class BlockMirrorBase extends BlockModContainer implements IBloc
 		super(name, material);
 	}
 
+	@SideOnly(Side.CLIENT)
+	public void initModel() {
+		ClientRegistry.bindTileEntitySpecialRenderer(TileMirrorBase.class, new RenderMirror());
+	}
+
+
 	@Nullable
-	private TileMirrorBase getTE(World world, BlockPos pos) {
+	protected TileMirrorBase getTE(World world, BlockPos pos) {
 		TileEntity tile = world.getTileEntity(pos);
 		if (!(tile instanceof TileMirrorBase)) return null;
 		return (TileMirrorBase) tile;

@@ -13,6 +13,7 @@ public class ModBlocks {
 	public static BlockReflectionChamber REFLECTCHAMBER;
 	public static BlockPrism PRISM;
 	public static BlockPump PUMP;
+	public static BlockAdvSplitter ADVANCEDSPLITTER;
 
 	public static void init() {
 		MIRROR = new BlockMirror();
@@ -22,12 +23,14 @@ public class ModBlocks {
 		REFLECTCHAMBER = new BlockReflectionChamber();
 		PRISM = new BlockPrism();
 		PUMP = new BlockPump();
+		ADVANCEDSPLITTER = new BlockAdvSplitter();
 	}
 
 	@SideOnly(Side.CLIENT)
 	public static void initModels() {
 		MIRROR.initModel();
 		SPLITTER.initModel();
+		ADVANCEDSPLITTER.initModel();
 		REFLECTCHAMBER.initModel();
 	}
 }

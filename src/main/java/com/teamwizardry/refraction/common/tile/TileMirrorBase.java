@@ -86,6 +86,10 @@ public abstract class TileMirrorBase extends TileModTickable implements ITileLig
 
 	protected abstract boolean handleMirrorBeam(Beam beam, Vec3d incomingDir, Vec3d normal);
 
+	public boolean reloadTexture() {
+		return false;
+	}
+
 	@Nonnull
 	@SideOnly(Side.CLIENT)
 	public abstract ResourceLocation getMirrorHeadLocation();

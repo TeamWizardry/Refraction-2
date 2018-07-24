@@ -1,9 +1,12 @@
 package com.teamwizardry.refraction.api.utils;
 
+import com.teamwizardry.librarianlib.features.base.block.tile.module.ModuleInventory;
 import com.teamwizardry.refraction.api.Beam;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraftforge.items.IItemHandler;
 
 import java.util.List;
 import java.util.UUID;
@@ -68,5 +71,26 @@ public class Utils {
 		}
 
 		return (float) Math.toDegrees(angle);
+	}
+
+	public static boolean simpleAreStacksEqual(ItemStack stack, ItemStack stack2) {
+		return stack.getItem() == stack2.getItem() && stack.getItemDamage() == stack2.getItemDamage();
+	}
+
+	public static int getOccupiedSlotCount(ModuleInventory inventory) {
+		return getOccupiedSlotCount(inventory.getHandler());
+	}
+	public static int getOccupiedSlotCount(IItemHandler inventory) {
+		int x = 0;
+		for (int i = 0; i < inventory.getSlots(); i++) if (inventory.getStackInSlot(i) != ItemStack.EMPTY) x++;
+		return x;
+	}
+
+	public static int getLastOccupiedSlot(ModuleInventory inventory) {
+		return getLastOccupiedSlot(inventory.getHandler());
+	}
+	public static int getLastOccupiedSlot(IItemHandler inventory) {
+		for (int i = inventory.getSlots() - 1; i > 0; i--) if (inventory.getStackInSlot(i) != ItemStack.EMPTY) return i;
+		return 0;
 	}
 }

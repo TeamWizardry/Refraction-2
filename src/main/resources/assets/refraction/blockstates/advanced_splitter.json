@@ -1,0 +1,24 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "refraction:mirror_base",
+    "textures": {
+      "0": "refraction:blocks/mirror_splitter"
+    }
+  },
+  "variants": {
+    "color=white": { "model": "refraction:mirror_base", "textures": { "0": "refraction:blocks/mirror_splitter" } },
+    "color=red": { "model": "refraction:mirror_base", "textures": { "0": "refraction:blocks/mirror_splitter_red" } },
+    "color=green": { "model": "refraction:mirror_base", "textures": { "0": "refraction:blocks/mirror_splitter_green" } },
+    "color=blue": { "model": "refraction:mirror_base", "textures": { "0": "refraction:blocks/mirror_splitter_blue" } },
+    "normal": [{}],
+    "inventory": [
+      {
+        "model": "carpet_white",
+        "textures": {
+          "wool": "refraction:items/splitter"
+        }
+      }
+    ]
+  }
+}

@@ -23,11 +23,6 @@ public class BlockMirror extends BlockMirrorBase {
 		super("mirror", Material.GLASS);
 	}
 
-	@SideOnly(Side.CLIENT)
-	public void initModel() {
-		ClientRegistry.bindTileEntitySpecialRenderer(TileMirrorBase.class, new RenderMirror());
-	}
-
 	@Nullable
 	@Override
 	public TileEntity createTileEntity(@NotNull World world, @NotNull IBlockState state) {
@@ -39,6 +34,4 @@ public class BlockMirror extends BlockMirrorBase {
 	public BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.CUTOUT;
 	}
-
-
 }

@@ -49,7 +49,7 @@ public class RenderMirror extends TileEntitySpecialRenderer<TileMirrorBase> {
 			modelArms = model.bake(model.getDefaultState(), DefaultVertexFormats.ITEM,
 					location -> Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(location.toString()));
 		}
-		if (modelMirror == null) {
+		if (modelMirror == null || te.reloadTexture()) {
 			try {
 				model = ModelLoaderRegistry.getModel(new ResourceLocation(Refraction.MOD_ID, "block/mirror_head"));
 			} catch (Exception e) {

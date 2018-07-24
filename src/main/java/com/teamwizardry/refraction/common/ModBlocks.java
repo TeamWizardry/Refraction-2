@@ -12,6 +12,7 @@ public class ModBlocks {
 	public static BlockSolarPanel SOLARPANEL;
 	public static BlockReflectionChamber REFLECTCHAMBER;
 	public static BlockPrism PRISM;
+	public static BlockPump PUMP;
 
 	public static void init() {
 		MIRROR = new BlockMirror();
@@ -20,6 +21,7 @@ public class ModBlocks {
 		SOLARPANEL = new BlockSolarPanel();
 		REFLECTCHAMBER = new BlockReflectionChamber();
 		PRISM = new BlockPrism();
+		PUMP = new BlockPump();
 	}
 
 	@SideOnly(Side.CLIENT)

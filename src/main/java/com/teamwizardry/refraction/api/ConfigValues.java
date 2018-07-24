@@ -38,4 +38,8 @@ public class ConfigValues {
 	@ConfigIntRange(min = 0, max = 100)
 	@ConfigProperty(category = "energy", comment = "Amount of FE per tick the laser consumes")
 	public static int laserConsume= 10;
+
+	@ConfigIntRange(min = 0, max = 100)
+	@ConfigProperty(category = "energy", comment = "Amount of FE per tick the pump consumes")
+	public static int pumpConsume= 10;
 }

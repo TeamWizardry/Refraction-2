@@ -24,11 +24,6 @@ public class BlockSplitter extends BlockMirrorBase {
 		setSoundType(SoundType.METAL);
 	}
 
-	@SideOnly(Side.CLIENT)
-	public void initModel() {//"blocks/mirror_splitter"
-		ClientRegistry.bindTileEntitySpecialRenderer(TileSplitter.class, new RenderMirror());
-	}
-
 	@Nullable
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState iBlockState) {

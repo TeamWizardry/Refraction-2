@@ -26,7 +26,7 @@ minecraft {
   //  replace 'GRADLE:VERSION', "$modversion"
     replace 'required-before:librarianlib', 'required-before:librarianlib@' + liblib_version
 
-    replaceIn 'Wizardry.java'
+    replaceIn 'Refraction.java'
 
     clientJvmArgs = ["-Dfml.coreMods.load=$core_plugin,com.teamwizardry.librarianlib.asm.LibLibCorePlugin"]
     serverJvmArgs = ["-Dfml.coreMods.load=$core_plugin,com.teamwizardry.librarianlib.asm.LibLibCorePlugin"]
